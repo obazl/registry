@@ -1,0 +1,45 @@
+--- /dev/null
++++ BUILD.bazel
+@@ -0,0 +1,42 @@
++load("@rules_foreign_cc//foreign_cc:configure.bzl",
++     "configure_make")
++
++# we cannot sum maps so we must specify the whole thing here
++ENV_MACSDK_13_0 = {"AR": "", "MACOSX_DEPLOYMENT_TARGET": "13.0"}
++ENV_MACSDK_13_1 = {"AR": "", "MACOSX_DEPLOYMENT_TARGET": "13.1"}
++ENV_MACSDK_13_3 = {"AR": "", "MACOSX_DEPLOYMENT_TARGET": "13.3"}
++
++filegroup(
++    name = "all",
++    srcs = glob(["**"]),
++)
++
++configure_make(
++    name = "libunistring",
++    lib_source = ":all",
++    # out_lib_dir = "lib",
++    out_static_libs = ["libunistring.a"],
++    out_shared_libs = select({
++        "@platforms//os:macos": ["libunistring.dylib"],
++        "@platforms//os:linux": ["libunistring.so"],
++        "//conditions:default": ["libunistring.so"],
++    }),
++    env = select({
++        "@platforms//os:macos": {"AR": ""},
++        # "//config/host:macsdk_13.0": ENV_MACSDK_13_0,
++        # "//config/host:macsdk_13.1": ENV_MACSDK_13_1,
++        # "//config/host:macsdk_13.3": ENV_MACSDK_13_3,
++        "//conditions:default": {}
++    }),
++    configure_in_place = True,
++    configure_options = [
++        "--disable-dependency-tracking",
++        # "--disable-silent-rules",
++    ] +
++    select({
++        "@platforms//os:macos": [],
++        "@platforms//os:linux": [],
++        "//conditions:default": []
++    }),
++    visibility = ["//visibility:public"],
++)

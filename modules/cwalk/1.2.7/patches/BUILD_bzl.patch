@@ -1,0 +1,5 @@
+--- /dev/null	2023-07-17 22:15:01
++++ BUILD.bzl	2023-07-17 22:04:42
+@@ -0,0 +1,2 @@
++def version():
++    return native.module_version()

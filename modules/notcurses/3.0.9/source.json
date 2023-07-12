@@ -1,0 +1,11 @@
+{
+    "url": "https://github.com/dankamongmen/notcurses/archive/refs/tags/v3.0.9.tar.gz",
+    "integrity": "sha256-5cwCrqgoFLhDzfNN7dcW5uHpykQM8PiZhTypXiQb1zQ=",
+    "strip_prefix": "notcurses-3.0.9",
+    "patches": {
+        "config_BUILD_bazel.patch": "sha256-CEs/VK6qgF0nr8DW82mFYp26J6UpMHJOOTuxRFTwE2g=",
+        "add_build_file.patch": "sha256-3BUSG1y7BzpEmkNQUYe6/MBjhGdCXx5CzsfXb+4xHY0=",
+        "module_dot_bazel.patch": "sha256-xv8CY2hRB8WKk63dBNB6VtFUDhyvFN+QrBXYowUZpS0="
+    },
+    "patch_strip": 0
+}

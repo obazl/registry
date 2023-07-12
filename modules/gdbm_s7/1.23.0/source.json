@@ -1,0 +1,9 @@
+{
+    "url": "https://github.com/libs7/gdbm_s7/archive/refs/heads/main.zip",
+    "integrity": "sha256-cgbLACm6P6Xz1qx+blL20E1OGwiqTWMTBZMPBRQwFuA=",
+    "strip_prefix": "gdbm_s7-main",
+    "patch_strip": 0,
+    "patches": {
+        "module_dot_bazel.patch": "sha256-HVpQtsDNHDLqaAelneUQFmUtGTeQ7DohHql4MRksAsg="
+    }
+}

@@ -1,0 +1,8 @@
+module(
+    name = "inih",
+    version = "57.0.0",
+    compatibility_level = 57,
+)
+
+bazel_dep(name = "platforms", version = "0.0.6")
+bazel_dep(name = "rules_cc", version = "0.0.6")

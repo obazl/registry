@@ -1,0 +1,115 @@
+module(
+    name = "stylites",
+    version = "1.0.0",
+    compatibility_level = 1,
+)
+bazel_dep(name = "platforms", version = "0.0.7")
+bazel_dep(name = "bazel_skylib", version = "1.4.2")
+bazel_dep(name = "rules_cc", version = "0.0.8")
+bazel_dep(name = "cc_config",    version = "1.0.0")
+
+bazel_dep(name = "liblogc",  version = "1.0.0")
+bazel_dep(name = "uthash", version = "2.3.0")
+
+bazel_dep(name = "gopt",  version = "10.0.0")
+bazel_dep(name = "linenoise",  version = "1.0.0")
+
+bazel_dep(name = "unity", version = "2.5.2",
+          dev_dependency = True)
+
+bazel_dep(name = "apple_support", version = "1.8.1",
+          repo_name = "build_bazel_apple_support")
+apple_cc_configure = use_extension("@build_bazel_apple_support//crosstool:setup.bzl", "apple_cc_configure_extension")
+use_repo(apple_cc_configure, "local_config_apple_cc")
+
+bazel_dep(name = "rules_nodejs", version = "6.0.1")
+
+# bazel_dep(name = "aspect_rules_js", version = "1.9.0",
+#           dev_dependency = True)
+
+bazel_dep(name = "rules_rust", version = "0.20.1")
+# bazel_dep(
+#     name = "rules_rust",
+#     version = "0.26.0",
+#     # dev_dependency = True,
+# )
+
+# git_override(
+#     module_name = "rules_rust",
+#     remote = "https://github.com/bazelbuild/rules_rust.git",
+#     commit = "0ed7157402aacd2c8b5310d8348ec792826da4d4",
+# )
+
+rust = use_extension("@rules_rust//rust:extensions.bzl", "rust")
+rust.toolchain(edition = "2021")
+use_repo(rust,
+         "rust_toolchains")
+         # "rust_host_tools")
+
+register_toolchains("@rust_toolchains//:all")
+
+# Use a toml file to generate your dependencies like so:
+crate = use_extension("@rules_rust//rust:extensions.bzl",
+                      "crate")
+
+crate.from_cargo(
+    # This is optional, but if you need crate.annotation, then this is the
+    # bzlmod equivalent.
+    # annotation_files = ["//:annotations.json"],
+    cargo_lockfile = "//:Cargo.lock",
+    # packages = {
+    #     "ansi_term": crate.spec(version = "0.12.1"),
+    #     "anyhow": crate.spec(version  = "1.0.72"),
+    #     "atty": crate.spec(version  = "0.2.14"),
+    #     "clap": crate.spec(version  = "2.32"),
+    #     "ctrlc": crate.spec(version = "3.4.0", features = ["termination"]),
+    #     "difference": crate.spec(version  = "2.0.0"),
+    #     "dirs": crate.spec(version  = "5.0.1"),
+    #     "glob": crate.spec(version = "0.3.1"),
+    #     "html-escape": crate.spec(version = "0.2.13"),
+    #     "indexmap": crate.spec(version = "2.0.0"),
+    #     "lazy_static": crate.spec(version = "1.4.0"),
+    #     "log": crate.spec(version = "0.4.14",
+    #                       features = ["std"]),
+    #     "path-slash": crate.spec(version = "0.2.1"),
+    #     "regex": crate.spec(version = "1.9.1"),
+    #     "regex-syntax": crate.spec(version = "0.7.4"),
+    #     "rustc-hash": crate.spec(version = "1.1.0"),
+    #     "semver": crate.spec(version = "1.0.18"),
+    #     # Due to https://github.com/serde-rs/serde/issues/2538
+    #     "serde": crate.spec(version = "1.0, < 1.0.172",
+    #                         features = ["derive"]),
+    #     "serde_json": crate.spec(version = "1.0",
+    #                              features = ["preserve_order"]),
+    #     "smallbitvec": crate.spec(version = "2.5.1"),
+    #     "tiny_http": crate.spec(version = "0.12.0"),
+    #     "walkdir": crate.spec(version = "2.3.3"),
+    #     "webbrowser": crate.spec(version = "0.8.10"),
+    #     "which": crate.spec(version = "4.4.0")
+    # },
+
+    manifests = [
+        "//:Cargo.toml",
+        "//src/generator:Cargo.toml",
+        "//src/runtime/bindings/rust:Cargo.toml",
+        "//tools/cli/src/tests/proc_macro:Cargo.toml",
+
+        # "//tools/cli:Cargo.toml",
+        # "//tools/cli/config:Cargo.toml",
+    ],
+)
+
+use_repo(
+    crate,
+    # Rename it from <module_name>_crates to crates
+    "stylites_crates"
+)
+
+# cargo_bazel_bootstrap = use_extension(
+#     "@rules_rust//crate_universe/private/module_extensions:cargo_bazel_bootstrap.bzl",
+#     "cargo_bazel_bootstrap",
+# )
+# use_repo(cargo_bazel_bootstrap, "cargo_bazel_bootstrap")
+
+# crates = use_extension("@stylites//:EXTENSIONS.bzl", "crates")
+# use_repo(crates, "crate_index")

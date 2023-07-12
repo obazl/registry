@@ -1,0 +1,9 @@
+{
+    "url": "https://github.com/libs7/cjson_s7/archive/refs/heads/main.zip",
+    "integrity": "sha256-yDv2sD2KAV9IM7uIM1JygbtzlFTZJ/PwDE/8Pe9i23s=",
+    "strip_prefix": "cjson_s7-main",
+    "patch_strip": 0,
+    "patches": {
+        "module_dot_bazel.patch": "sha256-bk+w7vlaHZxxRXNqtOXMuQkF2ZtIp4zyb65YjBntDbw="
+    }
+}

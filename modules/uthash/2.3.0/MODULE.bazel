@@ -1,0 +1,7 @@
+module(
+    name = "uthash",
+    version = "2.3.0",
+    compatibility_level = 2,
+)
+bazel_dep(name = "platforms", version = "0.0.6")
+

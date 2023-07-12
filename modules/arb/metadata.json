@@ -1,0 +1,11 @@
+{
+    "homepage": "https://arblib.org/",
+    "maintainers": [],
+    "repository": [
+        "github:fredrik-johansson/arb"
+    ],
+    "versions": [
+        "2.23.0"
+    ],
+    "yanked_versions": {}
+}

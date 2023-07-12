@@ -1,0 +1,9 @@
+{
+    "url": "https://github.com/libs7/toml_s7/archive/refs/heads/main.zip",
+    "integrity": "sha256-5A6XuG5VBRvOStFah7KS5MwszurKzK+3J3D6zPAPczM=",
+    "strip_prefix": "toml_s7-main",
+    "patch_strip": 0,
+    "patches": {
+        "module_dot_bazel.patch": "sha256-p/KlRYNLDI85W6HCxJb8hkgwGcWXygc67o3yajh6ww0="
+    }
+}

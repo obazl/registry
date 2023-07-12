@@ -1,0 +1,4 @@
+= bzlmod_registry
+OBazl bzlmod registry
+
+WARNING: Not ready for general use.

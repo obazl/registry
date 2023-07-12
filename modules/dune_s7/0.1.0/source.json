@@ -1,0 +1,9 @@
+{
+    "url": "https://github.com/libs7/dune_s7/archive/refs/heads/main.zip",
+    "integrity": "sha256-G1yf7qHa7ZQuvtWGNrDAUBcsE8b0EKEjnYbTNTSTFSk=",
+    "strip_prefix": "dune_s7-main",
+    "patch_strip": 0,
+    "patches": {
+        "module_dot_bazel.patch": "sha256-kZl/Gij8M2nmdfkR08pReTqFpgU4Jwx/DZvGYb8ELVY="
+    }
+}

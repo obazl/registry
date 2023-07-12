@@ -1,0 +1,41 @@
+--- MODULE.bazel
++++ MODULE.bazel
+@@ -1,20 +1,20 @@
+ TEST_S7_VERSION = "0.1.0"
+-LIBS7_VERSION = "0.1.0"
++module(
++    name = "test_s7",
++    version = TEST_S7_VERSION,
++    compatibility_level = 0
++)
++
++LIBS7_VERSION = "1.0.0"
+ CWALK_VERSION = "1.2.7"
+ CWALK_S7_VERSION = "1.2.7"
+ GOPT_VERSION = "10.0.0"
+-LIBLOG_CC_VERSION = "1.0.0"
++LIBLOGC_VERSION = "1.0.0"
+ MAKEHEADERS_VERSION = "1.0.0"
+ PLATFORMS_VERSION = "0.0.6"
+ RULES_CC_VERSION = "0.0.6"
+ UNITY_VERSION = "2.5.2"
+ UTHASH_VERSION = "2.3.0"
+-
+-module(
+-    name = "test_s7",
+-    version = TEST_S7_VERSION,
+-    compatibility_level = 0
+-)
+ 
+ bazel_dep(name = "platforms", version = PLATFORMS_VERSION)
+ bazel_dep(name = "bazel_skylib", version = "1.4.2")
+@@ -23,7 +23,7 @@
+ bazel_dep(name = "makeheaders", version = MAKEHEADERS_VERSION)
+ bazel_dep(name = "gopt", version = GOPT_VERSION)
+ bazel_dep(name = "uthash", version = UTHASH_VERSION)
+-bazel_dep(name = "liblog_cc",  version = LIBLOG_CC_VERSION)
+-bazel_dep(name = "unity",  version = UNITY_VERSION)
++bazel_dep(name = "liblogc",  version = LIBLOGC_VERSION)
++# bazel_dep(name = "unity",  version = UNITY_VERSION)
+ 
+ bazel_dep(name = "libs7", version = LIBS7_VERSION)

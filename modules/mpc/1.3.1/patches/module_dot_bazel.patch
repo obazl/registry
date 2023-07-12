@@ -1,0 +1,12 @@
+--- MODULE.bazel
++++ MODULE.bazel
+@@ -0,0 +1,9 @@
++module(
++    name = "mpc",
++    version = "1.3.1",
++    compatibility_level = 1,
++)
++bazel_dep(name = "platforms", version = "0.0.6")
++bazel_dep(name = "rules_foreign_cc", version = "0.9.0")
++bazel_dep(name = "gmp", version = "6.2.1")
++bazel_dep(name = "mpfr", version = "4.2.0")

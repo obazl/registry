@@ -1,0 +1,9 @@
+{
+    "url": "https://github.com/mirror/ncurses/archive/refs/tags/v6.4.tar.gz",
+    "integrity": "sha256-OYk4RhOVGObC0ArB01TUiJ8POUrNRIhdcLFOrvTiPo4=",
+    "strip_prefix": "ncurses-6.4",
+    "patches": {
+        "add_build_file.patch": "sha256-QQXP8z/6AnOPUa0T4erxdEvAlQ2Ne7uqvYceCCkX+aQ="
+    },
+    "patch_strip": 0
+}

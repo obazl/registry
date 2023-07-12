@@ -1,0 +1,24 @@
+module(
+    name = "xdgc",
+    version = "1.0.0",
+    compatibility_level = 1,
+)
+
+bazel_dep(name = "platforms", version = "0.0.7")
+bazel_dep(name = "bazel_skylib", version = "1.4.2")
+bazel_dep(name = "cc_config",    version = "1.0.0")
+
+bazel_dep(name = "makeheaders", version = "1.0.0")
+bazel_dep(name = "uthash", version = "2.3.0")
+bazel_dep(name = "liblogc", version = "1.0.0")
+
+# bazel_dep(name = "emsdk", version = "1.0.0")
+# emsdk = use_extension("@emsdk//bazel:EXTENSIONS.bzl", "emsdk")
+# emsdk.deps()
+
+## dev dependencies
+bazel_dep(name = "unity",  version = "2.5.2",
+          dev_dependency = True)
+bazel_dep(name = "gopt", version = "10.0.0",
+          dev_dependency = True)
+

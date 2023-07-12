@@ -1,0 +1,13 @@
+{
+    "homepage": "https://github.com/ebiggers/libdeflate",
+    "maintainers": [],
+    "repository": [
+        "github:ebiggers/libdeflate"
+    ],
+    "versions": [
+        "1.11.0",
+        "1.15.0",
+        "1.18.0"
+    ],
+    "yanked_versions": {}
+}

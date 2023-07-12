@@ -1,0 +1,51 @@
+--- /dev/null
++++ BUILD.bazel
+@@ -0,0 +1,48 @@
++load("@rules_foreign_cc//foreign_cc:configure.bzl",
++     "configure_make")
++
++filegroup(name = "all", srcs = glob(["**"]))
++
++config_setting(
++    name = "macos",
++    constraint_values = ["@platforms//os:macos"])
++
++ENV_MACOS_13_0 = {"AR": "", "MACOSX_DEPLOYMENT_TARGET": "13.0"}
++config_setting(
++    name = "macos_13.0",
++    values = {"macos_sdk_version": "13.0"},
++    constraint_values = ["@platforms//os:macos"])
++
++ENV_MACOS_13_1 = {"AR": "", "MACOSX_DEPLOYMENT_TARGET": "13.1"}
++config_setting(
++    name = "macos_13.1",
++    values = {"macos_sdk_version": "13.1"},
++    constraint_values = ["@platforms//os:macos"])
++
++configure_make(
++    name = "libffi",
++    env = select({
++        ":macos_13.1": ENV_MACOS_13_1,
++        ":macos_13.0": ENV_MACOS_13_0,
++        ":macos": {"AR": ""},
++        "//conditions:default": { }
++    }),
++    # autogen = True, # not for 3.4.4
++    configure_in_place = True,
++    configure_options = select({
++        ":macos": ["--disable-multi-os-directory"],
++        "//conditions:default": []
++    }),
++    ## if WORKSPACE http_archive uses build_file_content = all_content
++    # lib_source = "@libffi//:all",  # bazel build //libffi
++    ## if WORKSPACE http_archive uses build_file = "@//libffi:BUILD.bazel":
++    lib_source = ":all",  # bazel build @libffi//:libffi
++    out_lib_dir = "lib",
++    out_shared_libs = select({
++        ":macos": ["libffi.dylib"],
++        "//conditions:default":  ["libffi.so"]
++    }),
++    out_static_libs = ["libffi.a"],
++    visibility = ["//visibility:public"],
++)
++

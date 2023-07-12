@@ -1,0 +1,31 @@
+matrix:
+  platform:
+  - debian10
+  - ubuntu2004
+  - macos
+  - windows
+tasks:
+  verify_targets:
+    name: Verify build targets
+    platform: ${{ platform }}
+    build_targets:
+    - '@cjson_s7//src:cjson_s7'
+    - '@cjson_s7//src:cjson_s7_dso'
+bcr_test_module:
+  module_path: test/MODULE.bazel
+  matrix:
+    platform:
+    - debian10
+    - ubuntu2004
+    - macos
+    - windows
+  tasks:
+    run_test_module:
+      name: Run test module
+      platform: ${{ platform }}
+      build_targets:
+      - //test:cjson_s7_test
+      - //test:cjson_s7_dso_test
+      test_targets:
+      - //test:cjson_s7_test
+      - //test:cjson_s7_dso_test

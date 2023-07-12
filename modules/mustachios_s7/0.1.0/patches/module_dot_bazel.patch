@@ -1,0 +1,44 @@
+--- MODULE.bazel
++++ MODULE.bazel
+@@ -1,9 +1,8 @@
+-LIBS7_VERSION = "0.1.0"
+ MUSTACHIOS_S7_VERSION = "0.1.0"
+ MUSTACHIOS_VERSION = "0.1.0"
+ 
+ GOPT_VERSION = "10.0.0"
+-LIBLOG_CC_VERSION = "1.0.0"
++LIBLOGC_VERSION = "1.0.0"
+ PLATFORMS_VERSION = "0.0.6"
+ RULES_CC_VERSION = "0.0.6"
+ UNITY_VERSION = "2.5.2"
+@@ -16,19 +15,21 @@
+ )
+ 
+ bazel_dep(name = "platforms", version = PLATFORMS_VERSION)
++bazel_dep(name = "bazel_skylib", version = "1.4.2")
+ bazel_dep(name = "rules_cc",  version = RULES_CC_VERSION)
+ 
+ bazel_dep(name = "gopt", version = GOPT_VERSION, dev_dependency=True)
+ bazel_dep(name = "uthash", version = UTHASH_VERSION, dev_dependency=True)
+-bazel_dep(name = "liblog_cc",  version = LIBLOG_CC_VERSION, dev_dependency=True)
++bazel_dep(name = "liblogc",  version = LIBLOGC_VERSION)
+ bazel_dep(name = "unity",  version = UNITY_VERSION, dev_dependency=True)
+ 
+ bazel_dep(name = "mustachios", version = MUSTACHIOS_VERSION)
+ 
+ CJSON_S7_VERSION = "1.7.16"
+ TOML_S7_VERSION = "0.1.0"
+-SEXP_S7_VERSION = "0.1.0"
++DUNE_S7_VERSION = "0.1.0"
+ 
++LIBS7_VERSION = "1.0.0"
+ bazel_dep(name = "libs7", version = LIBS7_VERSION)
+ # TODO: do we need to depend on these here? or only in apps that use
+ # mustachios_s7? only for testing?
+@@ -36,5 +37,5 @@
+           # dev_dependency=True)
+ bazel_dep(name = "toml_s7",  version = TOML_S7_VERSION)
+           # dev_dependency=True)
+-bazel_dep(name = "sexp_s7",  version = SEXP_S7_VERSION)
++bazel_dep(name = "dune_s7",  version = DUNE_S7_VERSION)
+           # dev_dependency=True)

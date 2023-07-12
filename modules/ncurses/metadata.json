@@ -1,0 +1,11 @@
+{
+    "homepage": "https://github.com/mirror/ncurses",
+    "maintainers": [],
+    "repository": [
+        "github:mirror/ncurses"
+    ],
+    "versions": [
+        "6.4"
+    ],
+    "yanked_versions": {}
+}

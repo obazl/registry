@@ -1,0 +1,11 @@
+{
+    "homepage": "https://github.com/obazl/rules_ocaml",
+    "maintainers": [],
+    "repository": [
+        "github:obazl/rules_ocaml"
+    ],
+    "versions": [
+        "1.0.0"
+    ],
+    "yanked_versions": {}
+}

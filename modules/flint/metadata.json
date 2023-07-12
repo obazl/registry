@@ -1,0 +1,11 @@
+{
+    "homepage": "https://flintlib.org/",
+    "maintainers": [],
+    "repository": [
+        "github:flintlib/flint2"
+    ],
+    "versions": [
+        "2.9.0"
+    ],
+    "yanked_versions": {}
+}

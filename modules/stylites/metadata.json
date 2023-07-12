@@ -1,0 +1,11 @@
+{
+    "homepage": "https://github.com/obazl/tree-sitter",
+    "maintainers": [],
+    "repository": [
+        "github:obazl/tree-sitter"
+    ],
+    "versions": [
+        "1.0.0"
+    ],
+    "yanked_versions": {}
+}

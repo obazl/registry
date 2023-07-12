@@ -1,0 +1,11 @@
+{
+    "homepage": "https://github.com/obazl/findlibc",
+    "maintainers": [],
+    "repository": [
+        "github:obazl/findlibc"
+    ],
+    "versions": [
+        "1.0.0"
+    ],
+    "yanked_versions": {}
+}

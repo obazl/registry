@@ -1,0 +1,11 @@
+{
+    "homepage": "https://github.com/libs7/gdbm_s7",
+    "maintainers": [],
+    "repository": [
+        "github:libs7/gdbm_s7"
+    ],
+    "versions": [
+        "1.23.0"
+    ],
+    "yanked_versions": {}
+}

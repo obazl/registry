@@ -1,0 +1,5 @@
+{
+    "url": "https://github.com/obazl/rules_ocaml/archive/refs/heads/dev.zip",
+    "integrity": "sha256-h9r9fV8YdI4/7cb1G26vuS1jWL26tBpjh8VOZkp70LQ=",
+    "strip_prefix": "rules_ocaml-dev"
+}

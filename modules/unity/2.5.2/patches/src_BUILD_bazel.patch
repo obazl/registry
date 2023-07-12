@@ -1,0 +1,23 @@
+--- /dev/null	2023-07-16 23:22:47
++++ src/BUILD.bazel	2023-07-16 23:22:27
+@@ -0,0 +1,20 @@
++cc_library(
++    name  = "unity",
++    linkstatic = True,
++    srcs  = ["unity.c", "unity_internals.h"],
++    hdrs  = ["unity.h"],
++    copts = ["-x", "c"] + select({
++        "@platforms//os:linux": [
++            "-std=gnu11",
++            "-fPIC",
++            # "-Wl,--no-undefined",
++        ],
++        "//conditions:default": ["-std=c11"],
++    }),
++    defines = [
++        ## FIXME: parameterize with //config build settings
++        "UNITY_FLOAT_TYPE=double",
++        "UNITY_INCLUDE_DOUBLE"
++    ],
++    visibility = ["//visibility:public"]
++)

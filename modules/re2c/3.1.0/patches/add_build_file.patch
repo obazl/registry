@@ -1,0 +1,53 @@
+--- /dev/null
++++ BUILD.bazel
+@@ -0,0 +1,50 @@
++load("@rules_foreign_cc//foreign_cc:defs.bzl", "configure_make")
++
++filegroup(
++    name = "all",
++    srcs = glob(["**"]),
++)
++    # visibility = ["//visibility:public"])"""
++
++config_setting(
++    name = "macos",
++    constraint_values = ["@platforms//os:macos"])
++
++ENV_MACOS_13_0 = {"AR": "", "MACOSX_DEPLOYMENT_TARGET": "13.0"}
++config_setting(
++    name = "macos_13.0",
++    values = {"macos_sdk_version": "13.0"},
++    constraint_values = ["@platforms//os:macos"])
++
++ENV_MACOS_13_1 = {"AR": "", "MACOSX_DEPLOYMENT_TARGET": "13.1"}
++config_setting(
++    name = "macos_13.1",
++    values = {"macos_sdk_version": "13.1"},
++    constraint_values = ["@platforms//os:macos"])
++
++###############
++configure_make(
++    name = "re2c",
++    out_binaries = ["re2c"],
++    # autogen = True,
++    env = select({
++        ":macos_13.0": ENV_MACOS_13_0,
++        ":macos_13.1": ENV_MACOS_13_1,
++        "//conditions:default": { }
++    }),
++    install_prefix = "${INSTALLDIR}",
++    autoreconf = True,
++    autoreconf_options = ["-i", "-W", "all"],
++    configure_in_place = True,
++    configure_options = [
++        "--disable-golang",
++        "--disable-benchmarks",
++        "--disable-benchmarks-regenerate",
++        "--disable-docs",
++        "--disable-libs",
++        "--disable-static",
++        "--disable-shared"
++    ],
++    lib_source = ":all",
++    visibility = ["//visibility:public"]
++)

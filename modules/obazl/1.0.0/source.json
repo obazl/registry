@@ -1,0 +1,9 @@
+{
+    "url": "https://github.com/obazl/tools_obazl/archive/refs/heads/dev.zip",
+    "integrity": "sha256-LCoZguYoy1cReUB6aTjZmHeKiDubzD7stWFciKjmekY=",
+    "strip_prefix": "tools_obazl-dev",
+    "patch_strip": 0,
+    "patches": {
+        "module_dot_bazel.patch": "sha256-Oxsm5vRZeRTH1AqhSCZXgG0lODiyCpMYEJYXrWXRpc4="
+    }
+}

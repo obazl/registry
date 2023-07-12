@@ -1,0 +1,10 @@
+{
+    "url": "https://gmplib.org/download/gmp/gmp-6.2.1.tar.xz",
+    "integrity": "sha256-/UgpkSzd0S+EGBw0Ucx1K+IkZD6H+sSXtp7d2txJtPI=",
+    "strip_prefix": "gmp-6.2.1",
+    "patches": {
+        "add_build_file.patch": "sha256-MShmQYygZh1N+Mprh0sZPjktfgnix4Q5O7syL7TPmT4=",
+        "module_dot_bazel.patch": "sha256-JyoSKFMxD6mSISP9nkRqNDiCPtL8xmcLydj4lr1YiaA="
+    },
+    "patch_strip": 0
+}

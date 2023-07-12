@@ -1,0 +1,9 @@
+{
+    "url": "https://github.com/libs7/cwalk_s7/archive/refs/heads/main.zip",
+    "integrity": "sha256-Ct2Mu8iXzb/8aMgnIoK+gQnkBYRM/5QcJOZZylfhkUk=",
+    "strip_prefix": "cwalk_s7-main",
+    "patch_strip": 0,
+    "patches": {
+        "module_dot_bazel.patch": "sha256-lY6uyV3QtCG5ii1xsuMku1b1rKJxwNdHH/BP6PguoQM="
+    }
+}

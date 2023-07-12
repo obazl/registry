@@ -1,0 +1,43 @@
+--- /dev/null
++++ BUILD.bazel
+@@ -0,0 +1,40 @@
++load("@rules_foreign_cc//foreign_cc:configure.bzl",
++     "configure_make")
++
++filegroup(
++    name = "all",
++    srcs = glob(["**"]),
++)
++
++configure_make(
++    name = "libflint",
++    lib_source = ":all",
++    deps = ["@mpfr//:libmpfr", "@gmp//:libgmp"],
++    linkopts = ["-lmpfr", "-lgmp"],
++    out_static_libs = ["libflint.a"],
++    out_shared_libs = select({
++        "@platforms//os:macos": ["libflint.dylib"],
++        "@platforms//os:linux" : ["libflint.so"],
++        "//conditions:default" : ["libflint.so"],
++    }),
++    env = {
++        "MPFR_DIR": "$(rootpath @mpfr//:libmpfr)/..",
++        "GMP_DIR" : "$(rootpath @gmp//:libgmp)/..",
++        "AR": ""
++    }
++    # + select({
++    #     "@platforms//os:macos": {"AR": ""},
++    #     "//conditions:default": {}
++    # }),
++    args = ["V=1"],
++    configure_in_place = True,
++    configure_options = [
++        "--with-mpfr=$MPFR_DIR",
++        "--with-gmp=exter",
++        "--enable-static",
++        "--enable-shared",
++        "--disable-dependency-tracking",
++    ],
++    visibility = ["//visibility:public"],
++)
++

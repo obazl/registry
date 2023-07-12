@@ -1,0 +1,10 @@
+--- /dev/null	2023-07-17 17:22:57
++++ include/BUILD.bazel	2023-07-14 11:20:50
+@@ -0,0 +1,7 @@
++exports_files(["cwalk.h"])
++
++cc_library(
++    name = "hdr",
++    hdrs = ["cwalk.h"],
++    visibility = ["//src:__pkg__"]
++)

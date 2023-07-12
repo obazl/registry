@@ -1,0 +1,15 @@
+--- /dev/null
++++ BUILD.bazel
+@@ -0,0 +1,12 @@
++load("@rules_cc//cc:defs.bzl", "cc_library")
++
++######################################################
++# https://github.com/benhoyt/inih
++cc_library(
++    name = "inih",
++    srcs = ["ini.c"],
++    hdrs = ["ini.h"],
++    defines = ["INI_STOP_ON_FIRST_ERROR=1"],
++    visibility = ["//visibility:public"],
++)
++

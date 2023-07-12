@@ -1,0 +1,11 @@
+{
+    "homepage": "https://github.com/libffi/libffi",
+    "maintainers": [],
+    "repository": [
+        "github:libffi/libffi"
+    ],
+    "versions": [
+        "3.4.4"
+    ],
+    "yanked_versions": {}
+}

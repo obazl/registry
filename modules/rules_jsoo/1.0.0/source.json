@@ -1,0 +1,9 @@
+{
+    "url": "https://github.com/obazl/rules_jsoo/archive/refs/heads/dev.zip",
+    "integrity": "sha256-fphPpjL254n+b6wcOlNfTpcntEKJMbveh5dN+tM1fog=",
+    "strip_prefix": "rules_jsoo-dev",
+    "patch_strip": 0,
+    "patches": {
+        "module_dot_bazel.patch": "sha256-N2hcxjb4jed91Tfj1+6IRmZW19OR+EfIKIZCvVwVPw4="
+    }
+}

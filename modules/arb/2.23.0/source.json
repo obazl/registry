@@ -1,0 +1,10 @@
+{
+    "url": "https://github.com/fredrik-johansson/arb/archive/refs/tags/2.23.0.zip",
+    "integrity": "sha256-MwwmyJST9tOTc42F2JmkWlJOh0tOHG0MOpIlNxJ+guc=",
+    "strip_prefix": "arb-2.23.0",
+    "patches": {
+        "add_build_file.patch": "sha256-RKd3eVzn2w+Xpx/DcpOeJZWhRAHMz0/ky/gt7yu1Z4U=",
+        "module_dot_bazel.patch": "sha256-LSaxe9k6j8zeGuBIewo4mcZ/U9sUXvbViUOcRQZTW9E="
+    },
+    "patch_strip": 0
+}

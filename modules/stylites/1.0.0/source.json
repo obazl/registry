@@ -1,0 +1,9 @@
+{
+    "url": "https://github.com/obazl/tree-sitter/archive/refs/heads/bazel.zip",
+    "integrity": "sha256-7NnZ3RcKkaI+hPSw0EVbI1j0N7vFD19HcSE/xqHpsn8=",
+    "strip_prefix": "tree-sitter-bazel",
+    "patch_strip": 0,
+    "patches": {
+        "module_dot_bazel.patch": "sha256-XUbU+z6bU2u5y/fcFHlD3WIGrohvHByHkAllsBuf3Mo="
+    }
+}

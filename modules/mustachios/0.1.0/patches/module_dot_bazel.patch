@@ -1,0 +1,32 @@
+--- MODULE.bazel
++++ MODULE.bazel
+@@ -7,11 +7,11 @@
+ # build config:
+ # --@mustachios//config/feature:open_memstream=False (default True)
+ 
+-LIBLOG_CC_VERSION = "1.0.0"
++LIBLOGC_VERSION = "1.0.0"
+ GOPT_VERSION = "10.0.0"
+ CEXCEPTION_VERSION = "1.3.3"
+ CJSON_VERSION = "1.7.16"
+-LIBTOML_CC_VERSION = "0.1.0"
++TOMLC_VERSION = "1.0.0"
+ 
+ bazel_dep(name = "unity",  version = "2.5.2", dev_dependency = True)
+ bazel_dep(name = "uthash", version = "2.3.0", dev_dependency = True)
+@@ -20,12 +20,12 @@
+ bazel_dep(name = "bazel_skylib", version = "1.4.2")
+ bazel_dep(name = "rules_cc", version = "0.0.6")
+ 
+-bazel_dep(name = "liblog_cc",  version = LIBLOG_CC_VERSION)
++bazel_dep(name = "liblogc",  version = LIBLOGC_VERSION)
+ bazel_dep(name = "gopt", version = GOPT_VERSION)
+ 
+ #bazel_dep(name = "cexception", version = CEXCEPTION_VERSION)
+ 
+ bazel_dep(name = "cjson", version = CJSON_VERSION)
+-bazel_dep(name = "libtoml_cc",  version = LIBTOML_CC_VERSION)
++bazel_dep(name = "tomlc",  version = TOMLC_VERSION)
+ 
+-bazel_dep(name = "libs7", version = "0.1.0")
++bazel_dep(name = "libs7", version = "1.0.0")

@@ -1,0 +1,19 @@
+--- /dev/null	2023-07-16 10:00:00
++++ c/BUILD.bazel	2023-07-16 09:59:52
+@@ -0,0 +1,16 @@
++# build tgt: @qr-code-generator//c
++cc_library(
++    name  = "qrcodegen",
++    linkstatic = True,
++    srcs  = ["qrcodegen.c"],
++    hdrs  = ["qrcodegen.h"],
++    copts = ["-x", "c"] + select({
++        "@platforms//os:linux": [
++            "-std=gnu11",
++            "-fPIC",
++            # "-Wl,--no-undefined",
++        ],
++        "//conditions:default": ["-std=c11"],
++    }),
++    visibility = ["//visibility:public"]
++)

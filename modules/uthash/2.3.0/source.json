@@ -1,0 +1,5 @@
+{
+    "url": "https://github.com/obazl/uthash/releases/download/v2.3.0/uthash-v2.3.0.tar.gz",
+    "integrity": "sha256-GByKvlOeTWkLiDjQ/xXfW+EcAtUEw6Xrkxau2RS+5g0=",
+    "strip_prefix": "uthash-2.3.0"
+}
