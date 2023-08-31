@@ -1,9 +1,5 @@
 {
     "url": "https://github.com/obazl/opamc/archive/refs/heads/main.zip",
-    "integrity": "sha256-AdkF1bZUs2yrRj2dygeWjcIaW/z/5rnGdQEVdsZuDpM=",
-    "strip_prefix": "opamc-main",
-    "patch_strip": 0,
-    "patches": {
-        "module_dot_bazel.patch": "sha256-9fDi2RZtQdL1H7Dnudj2ZMnWIe/43lFXbBs3VmqdebM="
-    }
+    "integrity": "sha256-Cczcw6FmqgYepI15MEZZS7X8LoliVk5KTh9ZMKnv/L0=",
+    "strip_prefix": "opamc-main"
 }
