@@ -9,6 +9,7 @@ bazel_dep(name = "cc_config",    version = "1.0.0")
 bazel_dep(name = "libs7", version = "1.0.0")
 bazel_dep(name = "cwalk", version = "1.2.7")
 bazel_dep(name = "liblogc",  version = "1.0.0")
+bazel_dep(name = "uthash", version = "2.3.0")
 
 ## dev dependencies
 bazel_dep(name = "gopt", version = "10.0.0",
@@ -16,7 +17,5 @@ bazel_dep(name = "gopt", version = "10.0.0",
 # bazel_dep(name = "s7_tools", version = "1.0.0",
 #           dev_dependency=True)
 bazel_dep(name = "unity",  version = "2.5.2",
-          dev_dependency=True)
-bazel_dep(name = "uthash", version = "2.3.0",
           dev_dependency=True)
 
