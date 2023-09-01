@@ -1,5 +1,5 @@
 {
     "url": "https://github.com/obazl/findlibc/archive/refs/heads/main.zip",
-    "integrity": "sha256-UO33NdMYnDk+xjoK81eb29aMhixVio0VxAEGST+N2Q4=",
+    "integrity": "sha256-nyPAhPBP2nEhA6OFlgFB9Cg1i2jJGLYC4p5CiPl8T18=",
     "strip_prefix": "findlibc-main"
 }
