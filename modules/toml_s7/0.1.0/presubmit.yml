@@ -10,4 +10,3 @@ tasks:
     platform: ${{ platform }}
     build_targets:
     - '@toml_s7//src:toml_s7'
-    - '@toml_s7//src:toml_s7_dso'
