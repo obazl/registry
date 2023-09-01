@@ -4,7 +4,7 @@ module(
     compatibility_level = 1
 )
 
-bazel_dep(name = "platforms", version = "0.0.6")
+bazel_dep(name = "platforms", version = "0.0.7")
 bazel_dep(name = "cc_config",    version = "1.0.0")
 bazel_dep(name = "libs7", version = "1.0.0")
 bazel_dep(name = "cwalk", version = "1.2.7")
