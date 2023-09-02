@@ -1,0 +1,36 @@
+--- /dev/null	2023-09-02 13:32:42
++++ lib/BUILD.bazel	2023-09-02 13:21:12
+@@ -0,0 +1,33 @@
++cc_library(
++    name = "lua",
++    srcs = ["//src:core_o", "//src:lib_o", "//src:hdrs"],
++    copts = select({
++        # Makefile says gnu99, but we want c11
++        # strdup is non-standard, not supported on linux in strict c11 mode
++        "@platforms//os:macos": ["-std=c11"],
++        "@platforms//os:linux": ["-std=gnu11"],
++        "//conditions:default": ["-std=c11"],
++    }) + [
++        "-O2",
++        "-Wall",
++        "-Wextra",
++    ],
++    defines = select({
++        "@platforms//os:macos": [ "LUA_USE_MACOSX" ],
++        "@platforms//os:linux": [ "LUA_USE_LINUX" ],
++        "//conditions:default": {}
++    }) + [
++        "LUA_COMPAT_5_3",
++        "LUA_USE_READLINE" ## FIXME: use libedit or editline
++    ],
++    linkopts = select({
++        "@platforms//os:macos": [],
++        "@platforms//os:linux": [ "-Wl,-E", "-ldl"],
++        "//conditions:default": {}
++    }) + [
++        "-lm",
++        "-lreadline" ## FIXME: libedit, editline, linenoise?
++    ],
++    visibility = ["//visibility:public"],
++)
++

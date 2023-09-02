@@ -1,0 +1,12 @@
+{
+    "url": "https://www.lua.org/ftp/lua-5.4.6.tar.gz",
+    "integrity": "sha256-fV6huctqoLWco93hxq3LV++DobqOVDLA7NBr9DmzrYg=",
+    "strip_prefix": "lua-5.4.6",
+    "patches": {
+        "bin_BUILD_bazel.patch": "sha256-gFZbvO8Q4wMrjpkbQ+V0ATtm1mnOHRpwYoNtcAydzuM=",
+        "lib_BUILD_bazel.patch": "sha256-69Zoy17I+4aa5PJ0mmgC520En57J4SqyY12oVVLshuo=",
+        "src_BUILD_bazel.patch": "sha256-88BjdxepUBcgd7EJC8sNqu31myPDXFpg/iRBmQC3akw=",
+        "module_dot_bazel.patch": "sha256-IATP9koMJ006v6NjF/uNxe18OAFpu2taExmixlt0hew="
+    },
+    "patch_strip": 0
+}
