@@ -1,0 +1,27 @@
+--- /dev/null
++++ BUILD.bazel
+@@ -0,0 +1,24 @@
++load("@rules_foreign_cc//foreign_cc:defs.bzl", "configure_make")
++
++filegroup(name = "all",
++          srcs = glob(["**"]),
++          visibility = ["//visibility:public"])
++
++###############
++configure_make(
++    name = "sfsexp",
++    configure_in_place = True,
++    env = select({
++        "@platforms//os:macos": {
++            "AR": "",
++        },
++        "//conditions:default": {}
++    }),
++    lib_source = ":all",
++    out_shared_libs = select({
++        "@platforms//os:macos": ["libsexp.dylib"],
++        "//conditions:default": ["libsexp.so"],
++    }),
++    out_static_libs = ["libsexp.a"], # no shared lib
++    visibility = ["//visibility:public"],
++)
