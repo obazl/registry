@@ -1,7 +1,6 @@
-DUNE_S7_VERSION     = "0.1.0"
 module(
     name = "dune_s7",
-    version = DUNE_S7_VERSION,
+    version = "0.1.0",
     compatibility_level = 0
 )
 
