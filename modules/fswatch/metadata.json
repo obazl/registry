@@ -1,0 +1,11 @@
+{
+    "homepage": "https://github.com/emcrisostomo/fswatch",
+    "maintainers": [],
+    "repository": [
+        "github:emcrisostomo/fswatch"
+    ],
+    "versions": [
+        "1.17.1"
+    ],
+    "yanked_versions": {}
+}
