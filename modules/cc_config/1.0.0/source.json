@@ -1,5 +1,5 @@
 {
-    "url": "https://github.com/obazl/cc_config/archive/refs/heads/main.zip",
-    "integrity": "sha256-UMNY3z+hikGnLV2un0CaYj1nXPxUIu2XYZDY+GLlgSA=",
-    "strip_prefix": "cc_config-main"
+    "url": "https://github.com/obazl/cc_config/releases/download/1.0.0/cc_config-1.0.0.tar.gz",
+    "integrity": "sha256-qMPjgvLwTirNRK/7mO88Sa2K2Gsbb0I0po3K/M0Zclg=",
+    "strip_prefix": "cc_config-1.0.0"
 }
