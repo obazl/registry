@@ -33,7 +33,7 @@
  bazel_dep(name = "makeheaders", version = MAKEHEADERS_VERSION)
  bazel_dep(name = "gopt", version = GOPT_VERSION)
  bazel_dep(name = "uthash", version = UTHASH_VERSION)
--bazel_dep(name = "liblog_cc",  version = LIBLOG_CC_VERSION)
+-bazel_dep(name = "liblogc",  version = LIBLOG_CC_VERSION)
 -bazel_dep(name = "unity",  version = UNITY_VERSION)
 +bazel_dep(name = "liblogc",  version = LIBLOGC_VERSION)
 +# bazel_dep(name = "unity",  version = UNITY_VERSION)

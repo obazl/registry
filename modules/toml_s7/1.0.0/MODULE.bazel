@@ -1,7 +1,7 @@
 module(
     name = "toml_s7",
-    version = "0.1.0",
-    compatibility_level = 0
+    version = "1.0.0",
+    compatibility_level = 1
 )
 
 bazel_dep(name = "platforms",    version = "0.0.7")

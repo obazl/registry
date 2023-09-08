@@ -9,4 +9,20 @@ tasks:
     name: Verify build targets
     platform: ${{ platform }}
     build_targets:
-    - '@utf8proc//:libutf8proc'
+    - '@utf8proc//src:utf8proc'
+bcr_test_module:
+  module_path: //test
+  matrix:
+    platform:
+    - debian10
+    - ubuntu2004
+    - macos
+    - windows
+  tasks:
+    run_test_module:
+      name: Run test module
+      platform: ${{ platform }}
+      build_targets:
+      - //test
+      test_targets:
+      - //test

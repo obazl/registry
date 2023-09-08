@@ -1,8 +1,8 @@
 {
-    "homepage": "https://github.com/JuliaStrings/utf8proc",
+    "homepage": "https://github.com/obazl/utf8proc",
     "maintainers": [],
     "repository": [
-        "github:JuliaStrings/utf8proc"
+        "github:obazl/utf8proc"
     ],
     "versions": [
         "2.8.0"

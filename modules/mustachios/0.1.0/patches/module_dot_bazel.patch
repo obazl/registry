@@ -18,7 +18,7 @@
  bazel_dep(name = "bazel_skylib", version = "1.4.2")
  bazel_dep(name = "rules_cc", version = "0.0.6")
  
--bazel_dep(name = "liblog_cc",  version = LIBLOG_CC_VERSION)
+-bazel_dep(name = "liblogc",  version = LIBLOG_CC_VERSION)
 +bazel_dep(name = "liblogc",  version = LIBLOGC_VERSION)
  bazel_dep(name = "gopt", version = GOPT_VERSION)
  
