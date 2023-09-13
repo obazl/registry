@@ -1,5 +1,5 @@
 {
-    "url": "https://github.com/obazl/opamc/archive/refs/heads/main.zip",
-    "integrity": "sha256-cTTYHx9T4VvhqXKf9r5tdjPFmOdJLnE3pqBOnogXOvQ=",
-    "strip_prefix": "opamc-main"
+    "url": "https://github.com/obazl/opamc/releases/download/1.0.0/opamc-1.0.0.tar.gz",
+    "integrity": "sha256-nK4I5n+DaV3C6P5ZlqlWlXTa84PBlPnTG+xu1mFnf4o=",
+    "strip_prefix": "opamc-1.0.0"
 }

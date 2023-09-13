@@ -1,5 +1,5 @@
 {
-    "url": "https://github.com/obazl/semverc/archive/refs/heads/master.zip",
-    "integrity": "sha256-etISSBlbsUw0xeZrIdti3896b1J0gP3c62aCcYeRaw0=",
-    "strip_prefix": "semverc-master"
+    "url": "https://github.com/obazl/semverc/releases/download/1.0.1/semverc-1.0.1.tar.gz",
+    "integrity": "sha256-E16vSx2UqSM7UZ2q/BrQl3tc/v1CjW2kamiWzoGLt5w=",
+    "strip_prefix": "semverc-1.0.1"
 }
