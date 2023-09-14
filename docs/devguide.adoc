@@ -1,0 +1,290 @@
+= bzlmod development guide
+:toc:
+:toclevels: 3
+
+== Private/local registry
+
+The easy way to create a private registry is to create a new github
+repository, clone it to your local disk and then copy to it the
+following elements from the
+link:https://github.com/bazelbuild/bazel-central-registry/tree/main/tools[BCR]:
+
+* `.bazelrc`
+* `.bazelversion` (optional)
+* `.gitignore`
+* `MODULE.bazel` - edit to change the name.
+* `WORKSPACE`
+
+You may also want to copy or create `AUTHORS`, `LICENSE`, and a readme file.
+
+Create an empty `modules` directory.
+
+Create an empty `work` directory.
+
+=== --registry directives
+
+To use your registry locally during development, put the following in
+ `.bazelrc` (or a file it imports):
+
+    common --registry=file:///path/to/registry
+    common --registry=https://bcr.bazel.build
+
+WARNING: You must add `--registry=https://bcr.bazel.build` as the last
+directive. Bazel will not automatically use it if you use at least one
+`--registry` record.
+
+To test it over the network, you will need to push changes to your
+registry and then use a `--registry` directive to redirect dependency
+resolution to your github repository. To do this you must use a `raw`
+github URL, e.g.:
+
+    common --registry=https://raw.githubusercontent.com/<githubuid>/<repo>
+
+
+A published bzlmod repository must not change; only additions are
+allowed. But during development you may need to make changes to your
+registry records as you go, and you do not want to publish a new
+version for each change. So reserve the `main` branch of your
+repository for releases, and use a `dev` branch for development. Users
+who want to use the dev versions can do so by referring to the dev
+branch in a `--registry` directive in one of their `bazelrc` files.
+For example, if your registry repository is
+`https://github.com/<githubuid>/registry`, you would use:
+
+    common --registry=https://raw.githubusercontent.com/<githubuid>/registry/dev/
+
+and to use released versions:
+
+    common --registry=https://raw.githubusercontent.com/<githubuid>/registry/main/
+
+
+
+To create a `dev` branch:  from the root directory of your registry, run
+
+    git switch -c dev
+
+
+== Module development
+
+Suppose you have developed Bazel module in `$HOME/mymodule`. To test
+it locally using the `bzlmod` machinery, you need to create a record for
+it in your local registry and then use that registry.
+
+=== Create a local registry record
+
+* In your registry create directory `work/mymodule`
+* Copy the `MODULE.bazel` file for the module into `<reg>/work/mymodule`
+
+From the root directory of your registry, run:
+
+    python3 ./tools/add_module.py
+
+The `add_module` tool will prompt you for information. Here is an example, where the module name is `concurrency_key`, the version is `0.7.1`, and the repo is `https://github.com/obazl/ck`:
+
+----
+INFO: Getting module information from user input...
+ACTION: Please enter the module name: concurrency_kit
+ACTION: Please enter the module version: 0.7.1
+ACTION: Please enter the compatibility level [default is 1]: 0
+ACTION: Please enter the URL of the source archive: https://github.com/obazl/ck/archive/refs/heads/master.zip
+ACTION: Please enter the strip_prefix value of the archive [default None]: ck-master
+ACTION: Do you want to add patch files? [y/N]:
+ACTION: Do you want to add a BUILD file? [y/N]:
+ACTION: Do you want to specify a MODULE.bazel file? [y/N]: y
+ACTION: Please enter the MODULE.bazel file path: work/ck/MODULE.bazel
+ACTION: Do you want to specify an existing presubmit.yml file? (See https://github.com/bazelbuild/bazel-central-registry/tree/main#presubmityml) [y/N]:
+ACTION: Please enter a list of build targets you want to expose to downstream users, separated by `,`: //src:ck
+ACTION: Do you have a test module in your source archive? [Y/n]:
+ACTION: Please enter the test module path in your source archive: //test
+ACTION: Please enter a list of build targets for the test module, separated by `,`: //test
+ACTION: Please enter a list of test targets for the test module, separated by `,`: //test
+INFO: Saving module information to concurrency_kit.20230914-122132.json
+INFO: You can use it via --input=concurrency_kit.20230914-122132.json
+INFO: concurrency_kit is a new Bazel module...
+ACTION: Please enter the homepage url for this module: https://github.com/obazl/ck
+ACTION: Do you want to add a maintainer for this module? (See https://github.com/bazelbuild/bazel-central-registry/tree/main#module-maintainer) [y/N]:
+----
+
+If the source archive URL points to an unstable source (such as a github 'archive' url):
+
+----
+BcrValidationResult.FAILED: concurrency_kit@0.7.1 is using an unstable source url: `https://github.com/obazl/ck/archive/refs/heads/master.zip`.
+You should use a release archive URL in the format of `https://github.com/<ORGANIZATION>/<REPO>/releases/download/<version>/<name>.tar.gz` to ensure the archive checksum stability.
+See https://blog.bazel.build/2023/02/15/github-archive-checksum.html for more context.
+----
+
+If the `MODULE.bazel` file you passed does not match the one accesible through the URL, you will get the following message:
+
+----
+BcrValidationResult.FAILED: Checked in MODULE.bazel file doesn't match the one in the extracted and patched sources.
+Please fix the MODULE.bazel file or you can add the following patch to concurrency_kit@0.7.1:
+----
+
+This is expected during development since you may have changes that
+you have not yet pushed to the origin repo. This is not a problem for
+testing, so long as you use a `--repository` directive that points to
+your local repository *AND* you use an override directive to point to
+your local repo.
+
+The `add_module.py` tool will add a registry record; it will also
+create a json file that you can use to update the record. The file
+name will be something like `concurrency_kit.20230914-122132.json`.
+Move this file to `<reg>/work/ck.json`.
+
+=== Update a local registry record
+
+When you are ready to update, copy your `MODULE.bazel` file to
+`<reg>/work/<module>` and run:
+
+    python3 ./tools/add_module.py --input work/ck.json
+
+WARNING: if you make changes involving any of the information
+contained in the json file you need to update it, or rerun
+`add_module.py` without the `--input` argument.
+
+== Patching
+
+== Testing
+
+== Release checklist
+
+=== files
+
+==== .bazelrc
+
+Contains only:
+
+        common --enable_bzlmod
+        try-import .config/user.bazelrc
+
+Everything else belongs in `.config/user.bazelrc` or some other
+imported bazelrc file.
+
+==== .bazelignore
+
+Omit; add to `.gitignore`
+
+==== .bazelversion
+
+Omit; add to `.gitignore`
+
+==== .config
+
+The contents are gitignored, so this can be used by the developer for
+private files, such as `.bazelrc`.
+
+===== .config/.gitignore
+
+Contains only `*` with newline. Users can use `git add -f .config/foo`
+to force a file into version control.
+
+
+===== .config/user.bazelrc
+
+Do not put under version control. Suggested contents, in addition to
+any customization:
+
+    try-import .config/registries.bazelrc
+
+
+===== .config/registries.bazelrc
+
+This is where you put the `--registry` directives mentioned above.
+
+==== .gitignore
+
+    .bazelignore            <1>
+    .bazelversion           <1>
+    bazel-*                 <2>
+    .bazel                  <3>
+    *.gz                    <4>
+
+<1> Bazel ignores these files _except_ for the root module
+<1> The symlinks Bazel creates by default
+<2>  In case you use `--symlink_prefix=.bazel/`
+<3> The `bzlmod_release` tool (see below) will create a tarball; ignore it
+
+
+==== //:BUILD.bazel
+
+Omit this file if empty.
+
+==== MODULE.bazel
+
+Double-check `compatibility_level`.
+
+Do use the
+link:https://bazel.build/rules/lib/globals/module#module[bazel_compatibility]
+field to indicate which version of Bazel you have used for testing.
+
+Depend on the latest versions of bcr modules if you can.
+
+==== WORKSPACE.bazel
+
+One comment line, #
+
+==== test/MODULE.bazel
+
+contains:
+bazel_dep(name = "<module>")
+local_path_override(module_name = "<module>", path = "..")
+
+    * bazel build //... succeeds WITHOUT any overrides
+      or local registries (build with --nohome_rc)
+      AFTER bazel clean --expunge
+
+    * make final commit, merge into main
+    * push
+    * make release archive by running ~/bzlmod_release
+
+    * cut release on github, uploading release archive
+    * get the url for the release archive (from assets section)
+    * registry:
+        - copy MODULE.bazel
+        - edit work/<lib>.json
+            - compatibility_level
+            - strip_prefix
+            - url
+            - version
+        this fixes source.json:url to point to archive release
+        - run add_module.py --input
+          should report no errors
+    * test registry record in test/bzlmod by using
+      --registry=/Users/gar/obazl/registry
+      and without --registry=https://raw.githubusercontent.com/obazl/registry/main/
+
+=== verify build
+
+Use `--nohome_rc` to ensure that your build actions are not affected
+by any global `bazelrc` files (such as `$HOME/.bazelrc`)
+
+Run:
+
+* `bazel --nohome_rc clean --expunge`
+* `bazel --nohome_rc build //...`
+
+=== cut a release
+
+Commit your final changes and push. Then create a release archive by
+running the following shell script:
+
+[source,shell,title="bzlmod_release"]
+----
+    #!/bin/sh
+    set -o errexit -o nounset -o pipefail
+    MODULE=`buildozer 'print name' //MODULE.bazel:%module`
+    VERSION=`buildozer 'print version' //MODULE.bazel:%module`
+    PREFIX="${MODULE}-${VERSION}"
+    ARCHIVE="${MODULE}-$VERSION.tar.gz"
+    git archive --format=tar --prefix=${PREFIX}/ HEAD | gzip > $ARCHIVE
+----
+
+For module `foo` version `1.2.3` this will create `foo-1.2.3.tar.gz`.
+
+On the github website create a release with tag. On the webpage you
+should see a section that says `Attach binaries by dropping them here
+or selecting them.` Do this for the tarball you just created. After
+you click the "publish" you should see your tarball listed in the
+`Assets` section of the ensuing webpage display.
+
+CAUTION: Make sure the tag you create on the github UI matches the version identifier used for your tarball.
