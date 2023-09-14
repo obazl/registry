@@ -7,13 +7,14 @@
 The easy way to create a private registry is to create a new github
 repository, clone it to your local disk and then copy to it the
 following elements from the
-link:https://github.com/bazelbuild/bazel-central-registry/tree/main/tools[BCR]:
+link:https://github.com/bazelbuild/bazel-central-registry[BCR]:
 
 * `.bazelrc`
 * `.bazelversion` (optional)
 * `.gitignore`
 * `MODULE.bazel` - edit to change the name.
 * `WORKSPACE`
+* `tools` - copy the entire subdirectory
 
 You may also want to copy or create `AUTHORS`, `LICENSE`, and a readme file.
 
@@ -45,11 +46,20 @@ A published bzlmod repository must not change; only additions are
 allowed. But during development you may need to make changes to your
 registry records as you go, and you do not want to publish a new
 version for each change. So reserve the `main` branch of your
-repository for releases, and use a `dev` branch for development. Users
-who want to use the dev versions can do so by referring to the dev
-branch in a `--registry` directive in one of their `bazelrc` files.
+repository for releases, and use a `dev` branch for development.
+
+
+During development, you will use the local copy of your repository by
+specifying it in a `--registry` directive in one of your bazelrc
+files. When you're ready for integration testing, use a `--registry`
+directive that refers to the `dev` branch of your remote registry.
+
 For example, if your registry repository is
-`https://github.com/<githubuid>/registry`, you would use:
+`+https://github.com/<githubuid>/registry+`, and you cloned it to `$HOME/bzl/registry`, then during development you would use:
+
+    common --registry=file:///home/<uid>/bzl/registry
+
+For integration testing:
 
     common --registry=https://raw.githubusercontent.com/<githubuid>/registry/dev/
 
@@ -57,6 +67,10 @@ and to use released versions:
 
     common --registry=https://raw.githubusercontent.com/<githubuid>/registry/main/
 
+
+You can control the use of these directives by putting them in
+separate bazelrc files and passing some command line options; see
+section [X] below for more details.
 
 
 To create a `dev` branch:  from the root directory of your registry, run
@@ -73,51 +87,53 @@ it in your local registry and then use that registry.
 === Create a local registry record
 
 * In your registry create directory `work/mymodule`
-* Copy the `MODULE.bazel` file for the module into `<reg>/work/mymodule`
+* Copy the `MODULE.bazel` file for the module to `<reg>/work/mymodule/MODULE.bazel`
 
 From the root directory of your registry, run:
 
     python3 ./tools/add_module.py
 
-The `add_module` tool will prompt you for information. Here is an example, where the module name is `concurrency_key`, the version is `0.7.1`, and the repo is `https://github.com/obazl/ck`:
+The `add_module` tool will prompt you for information. Here is an example, where the module name is `foobar`, the version is `1.2.3`, and the repo is `https://github.com/foo/foobar`:
 
 ----
 INFO: Getting module information from user input...
-ACTION: Please enter the module name: concurrency_kit
-ACTION: Please enter the module version: 0.7.1
+ACTION: Please enter the module name: foobar
+ACTION: Please enter the module version: 1.2.3
 ACTION: Please enter the compatibility level [default is 1]: 0
-ACTION: Please enter the URL of the source archive: https://github.com/obazl/ck/archive/refs/heads/master.zip
-ACTION: Please enter the strip_prefix value of the archive [default None]: ck-master
+ACTION: Please enter the URL of the source archive: https://github.com/foo/foobar/archive/refs/heads/master.zip
+ACTION: Please enter the strip_prefix value of the archive [default None]: foobar-master
 ACTION: Do you want to add patch files? [y/N]:
 ACTION: Do you want to add a BUILD file? [y/N]:
 ACTION: Do you want to specify a MODULE.bazel file? [y/N]: y
-ACTION: Please enter the MODULE.bazel file path: work/ck/MODULE.bazel
+ACTION: Please enter the MODULE.bazel file path: work/foobar/MODULE.bazel
 ACTION: Do you want to specify an existing presubmit.yml file? (See https://github.com/bazelbuild/bazel-central-registry/tree/main#presubmityml) [y/N]:
-ACTION: Please enter a list of build targets you want to expose to downstream users, separated by `,`: //src:ck
+ACTION: Please enter a list of build targets you want to expose to downstream users, separated by `,`: //src:foobar
 ACTION: Do you have a test module in your source archive? [Y/n]:
 ACTION: Please enter the test module path in your source archive: //test
 ACTION: Please enter a list of build targets for the test module, separated by `,`: //test
 ACTION: Please enter a list of test targets for the test module, separated by `,`: //test
-INFO: Saving module information to concurrency_kit.20230914-122132.json
-INFO: You can use it via --input=concurrency_kit.20230914-122132.json
-INFO: concurrency_kit is a new Bazel module...
-ACTION: Please enter the homepage url for this module: https://github.com/obazl/ck
+INFO: Saving module information to foobar.20230914-122132.json
+INFO: You can use it via --input=foobar.20230914-122132.json
+INFO: foobar is a new Bazel module...
+ACTION: Please enter the homepage url for this module: https://github.com/foo/foobar
 ACTION: Do you want to add a maintainer for this module? (See https://github.com/bazelbuild/bazel-central-registry/tree/main#module-maintainer) [y/N]:
 ----
 
 If the source archive URL points to an unstable source (such as a github 'archive' url):
 
 ----
-BcrValidationResult.FAILED: concurrency_kit@0.7.1 is using an unstable source url: `https://github.com/obazl/ck/archive/refs/heads/master.zip`.
+BcrValidationResult.FAILED: foobar@1.2.3 is using an unstable source url: `https://github.com/foo/foobar/archive/refs/heads/master.zip`.
 You should use a release archive URL in the format of `https://github.com/<ORGANIZATION>/<REPO>/releases/download/<version>/<name>.tar.gz` to ensure the archive checksum stability.
 See https://blog.bazel.build/2023/02/15/github-archive-checksum.html for more context.
 ----
+
+You can ignore that during development. [TODO: link to the bazel message about this]
 
 If the `MODULE.bazel` file you passed does not match the one accesible through the URL, you will get the following message:
 
 ----
 BcrValidationResult.FAILED: Checked in MODULE.bazel file doesn't match the one in the extracted and patched sources.
-Please fix the MODULE.bazel file or you can add the following patch to concurrency_kit@0.7.1:
+Please fix the MODULE.bazel file or you can add the following patch to foobar@1.2.3:
 ----
 
 This is expected during development since you may have changes that
@@ -126,25 +142,141 @@ testing, so long as you use a `--repository` directive that points to
 your local repository *AND* you use an override directive to point to
 your local repo.
 
-The `add_module.py` tool will add a registry record; it will also
-create a json file that you can use to update the record. The file
-name will be something like `concurrency_kit.20230914-122132.json`.
-Move this file to `<reg>/work/ck.json`.
+The `add_module.py` tool will add a registry record (in
+`/path/to/registry/modules`); it will also create a json file that you
+can use to update the record. The file name will be something like
+`foobar.20230914-122132.json`. Move this file to
+`/path/to/registry/work/foobar.json`.
 
 === Update a local registry record
 
 When you are ready to update, copy your `MODULE.bazel` file to
-`<reg>/work/<module>` and run:
+`<reg>/work/foobar/MODULE.bazel` and run:
 
-    python3 ./tools/add_module.py --input work/ck.json
+    python3 ./tools/add_module.py --input work/foobar.json
 
 WARNING: if you make changes involving any of the information
 contained in the json file you need to update it, or rerun
 `add_module.py` without the `--input` argument.
 
+== Overrides
+
+[TODO]
+
+* `--override_repository`
+* the override "methods" (e.g. `archive_override`, `single_version_override`, etc.)
+
 == Patching
 
+[TODO]
+
+
 == Testing
+
+==== Clean build and test
+
+Testing your Bazel module can be a little tricky. I mean testing the
+"bzlmod-ness" of it, not testing your code.
+
+So assume you've tested your code as you normally would and it's all
+copacetic. Now you have to run tests to ensure that it is properly
+integrated into the bzlmod system.
+
+The complicating factors are that you have a private registry (such as a
+github repo) and a local copy thereof, and you have some `--registry`
+directives and possibly some `--override_repository` or other override
+directives in some bazelrc files. Furthermore you may have multiple
+bazelrc files. So in order to test properly you need to be able to
+control all this stuff.
+
+For example, you may have:
+
+* a _system rc_ file in `/etc/bazel.bazelrc` on Linux/MacOS, ` %ProgramData%\bazel.bazelrc` on Windows);
+
+* a _workspace rc_ file, `.bazelrc` in your workspace root directory;
+
+* a _home rc_ file, in `$HOME/.bazelrc` on Linux/MacOS; on Windows, `%USERPROFILE%\.bazelrc` if it exists, otherwise `%HOME%/.bazelrc`;
+
+* according to link:https://bazel.build/run/bazelrc#global-bazelrc[The
+  global bazelrc file], Bazel also looks for
+  `$workspace/tools/bazel.rc`.
+
+Furthermore you will likely have some additional bazelrc files, which
+you will enable either using the `try-import` directive from within
+another bazelrc file, or by passing `--bazelrc=_file_` on the command
+line.
+
+To control use of these files the following flags are availabel:
+
+* `--nosystem_rc`
+* `--noworkspace_rc`
+* `--nohome_rc`
+* `--bazelrc=_file_` - you can use this to specify a bazelrc to use while disabling all others; it is repeatble
+
+You will also have:
+
+* a local registry in `$HOME/path/to/registry`
+
+* the network (github `origin` remote) version of your local registry, at `+https://github.com/<UID>/<REPO>+`
+
+and you will have some `--repository` directives in your bazelrc files
+to enable them.
+
+For prerelease and release, unit tests should be run in a clean
+environment (`--nohome_rc` etc.), just like the builds.
+
+=== Test phases
+
+
+Testing your module goes in stages. You will want to build/use your
+module from within its root directory, but for integration you will
+need to create a separate Bazel project elsewhere on your system,
+whose sole purpose is to depend on the module(s) your are developing.
+
+TODO: flesh out the details of the bzlmod_test repo/workspace/module.
+Summary: list your module as a `bazel_dep` in its MODULE.bazel file,
+add an override for it, and then build it as an external resource by running
+`bazel build @mymodule//path/to:target`
+
+* module tests - run tests from your module's root directory, to
+  verify that all `bazel_dep` directives resolve correctly.
+
+NOTE: If you are simultaneously developing several modules you will
+need to create registry records for all of them, and use `--registry`
+and `--override_repository` directives to make sure your deps resolve
+to your local copies during development. For example, this will be the
+case if you decide to partition your module into several different
+Bazel modules - something that the bzlmod system makes attractive.
+
+* local test - use the local registry with a repo override to resolve
+  dependencies on your module to your local repo.
+
+* dev test - push your module changes, but use the local registry to
+  resolve `bazel_dep` directives. The registry records refer to module
+  resources on the network (i.e. without local overrides). This
+  verifies that you've configured your registry properly by using it
+  locally, before pushing it to the upstream registry repo.
+
+* prerelease test - use the `dev` branch of your (private) network registry. This test verifies that you have correctly configured your registry by using it as a network resource.
+
+* release test - use the `main` branch of your (private) network
+registry. The release test is to verify that all is well after you
+have installed your module's registry record to the `main` branch of
+your registry.
+
+
+
+
+=== local testing
+
+
+=== prerelease testing
+
+=== release testing
+
+--bazelrc=/dev/null
+
+--nokeep_state_after_build
 
 == Release checklist
 
@@ -213,9 +345,14 @@ Omit this file if empty.
 
 Double-check `compatibility_level`.
 
-Do use the
+_Do_ use the
 link:https://bazel.build/rules/lib/globals/module#module[bazel_compatibility]
 field to indicate which version of Bazel you have used for testing.
+
+IMPORTANT: Also do test for compatibility; do not assume that your
+module will build on x.0.0 just because it builds on x.3.y. (Example:
+a `cc_shared_library` with a `deps` attribute will build with Bazel
+`6.1.0` but not `6.0.0`.)
 
 Depend on the latest versions of bcr modules if you can.
 
@@ -229,39 +366,45 @@ contains:
 bazel_dep(name = "<module>")
 local_path_override(module_name = "<module>", path = "..")
 
-    * bazel build //... succeeds WITHOUT any overrides
-      or local registries (build with --nohome_rc)
-      AFTER bazel clean --expunge
-
-    * make final commit, merge into main
-    * push
-    * make release archive by running ~/bzlmod_release
-
-    * cut release on github, uploading release archive
-    * get the url for the release archive (from assets section)
-    * registry:
-        - copy MODULE.bazel
-        - edit work/<lib>.json
-            - compatibility_level
-            - strip_prefix
-            - url
-            - version
-        this fixes source.json:url to point to archive release
-        - run add_module.py --input
-          should report no errors
-    * test registry record in test/bzlmod by using
-      --registry=/Users/gar/obazl/registry
-      and without --registry=https://raw.githubusercontent.com/obazl/registry/main/
-
 === verify build
 
-Use `--nohome_rc` to ensure that your build actions are not affected
-by any global `bazelrc` files (such as `$HOME/.bazelrc`)
+Use the bazelrc-cancelling directives (`--nohome_rc` etcl) to ensure
+that your build actions are not inadvertently affected by any
+`bazelrc` files (such as `$HOME/.bazelrc`).
 
-Run:
+First run `bazel clean --expunge`.
 
-* `bazel --nohome_rc clean --expunge`
-* `bazel --nohome_rc build //...`
+Then use a dedicated bazelrc file to ensure your build uses exactly what you
+need; for example you can define `.bazelrc.prerelease`,
+`.bazelrc.release`, etc., each containing the appropriate
+`--repository` and override directives.
+
+Example:
+
+    bazel --bazelrc=.bazelrc.prerelease --noworkspace_rc --nosystem_rc --nohome_rc build //...
+
+where `.bazelrc.prerelease` contains something like
+
+    common --enable_bzlmod
+    common --registry=https://raw.githubusercontent.com/<UID>/registry/dev/  <1>
+    common --registry=https://bcr.bazel.build
+
+<1> NB: using the `main` branch of your registry
+
+
+The `no*_rc` directives will ensure that you do not inadvertently pick
+up a `--registry` or override directive that might give you a false
+positive.
+
+[IMPORTANT]
+====
+Files like `.bazelrc.prerelease` can go anywhere in the
+file system. If your are using one local registry to develope several
+modules, it might be more convenient to use something like
+`$HOME/.config/bazel/prerelease` and use it across projects:
+
+    bazel build --bazelrc=~/.config/bazel/prerelease ... etc. ...
+====
 
 === cut a release
 
@@ -288,3 +431,55 @@ you click the "publish" you should see your tarball listed in the
 `Assets` section of the ensuing webpage display.
 
 CAUTION: Make sure the tag you create on the github UI matches the version identifier used for your tarball.
+
+After you've cut a release, run release tests as described above,
+using `--bazelrc=.bazelrc.release` containing
+
+where `.bazelrc.prerelease` contains something like
+
+    common --enable_bzlmod
+    common --registry=https://raw.githubusercontent.com/<UID>/registry/main/    <1>
+    common --registry=https://bcr.bazel.build
+
+<1> NB: using the `main` branch of your registry
+
+
+== misc
+
+TODO:
+
+* bazel build //... must succeed WITHOUT any overrides or local
+  registries. Build cmd should have --nohome_rc etc. also
+  `--nokeep_state_after_build` instructs Bazel to "...discard
+  the inmemory state from this build when the build finishes.
+  Subsequent builds will not have any incrementality with respect to
+  this one." This should go in the testing bazelrc files
+  (`.bazel.prerelease` etc.)
+
+* run `bazel clean --expunge` before `bazel build //...`
+
+* make final commit, merge into main
+* push
+* make release archive by running ~/bzlmod_release
+
+* cut release on github, uploading release archive
+* get the url for the release archive (from assets section)
+* registry:
+        - copy MODULE.bazel
+        - edit work/<lib>.json
+            - compatibility_level
+            - strip_prefix
+            - url
+            - version
+        this fixes source.json:url to point to archive release
+        - run add_module.py --input
+          should report no errors
+    * test registry record in test/bzlmod by using
+      --registry=/path/to/registry
+      and without --registry=https://raw.githubusercontent.com/<ID>/registry/main/
+
+
+=== presubmit.yml
+
+link:https://github.com/bazelbuild/continuous-integration/blob/master/buildkite/README.md#using-a-specific-version-of-bazel[specific bazel version]
+
