@@ -1,5 +1,5 @@
 {
-    "url": "https://github.com/obazl/xdgc/archive/refs/heads/main.zip",
-    "integrity": "sha256-Ew/BTDImVrf1zjGydh7RutE0ihe0JoKecHj8UQ8Nu5c=",
-    "strip_prefix": "xdgc-main"
+    "url": "https://github.com/obazl/xdgc/releases/download/1.0.0/xdgc-1.0.0.tar.gz",
+    "integrity": "sha256-XJrdNnZA6vB77yrZ5w8nihE4Ty3LFm9/t+q7hF26hWQ=",
+    "strip_prefix": "xdgc-1.0.0"
 }
