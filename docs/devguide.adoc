@@ -391,7 +391,7 @@ where `.bazelrc.prerelease` contains something like
     common --registry=https://raw.githubusercontent.com/<UID>/registry/dev/  <1>
     common --registry=https://bcr.bazel.build
 
-<1> NB: using the `main` branch of your registry
+<1> NB: using the `dev` branch of your registry
 
 
 The `no*_rc` directives will ensure that you do not inadvertently pick
