@@ -2,6 +2,95 @@
 :toc:
 :toclevels: 3
 
+This documents the process I've used to develop a whole mess 'o Bazel
+modules, by hand. It does not use the CI tools (github actions etc.)
+provided by the
+link:https://github.com/bazelbuild/bazel-central-registry[Bazel
+Central Repository]. Mainly because I don't know how to use that
+stuff, but also because I wanted to understand how everything works.
+The result is a collection of Bazel modules registered in a
+(pubicly-available) link:https://github.com/obazl/registry[private
+registry]. Preparing such modules for submission to the BCR is a
+separate issue, which I'll document if I ever get around to it.
+
+WARNING: The link:https://github.com/obazl/registry[OBazl registry] is
+not yet stable. You can use the modules, but most of them are not tied
+to a stable release URL, so the checksums may not work. You probably
+do not want to use them for production code. I'm still in the process
+of preparing stable release versions of the modules.
+
+== Overview
+
+The scenario: you have three Bazel repositories that you would like to
+turn into Bazel modules. Module Foo depends on module Bar, which
+depends on module Baz. You have local copies of all three and you are
+developing them together.
+
+The general process goes like this. You create a private registry
+repository (on Github, lets say), and clone it to your local disk,
+giving you a local registry. As you develop your modules, you generate
+records for each in the local registry. You list the Github URLs of a
+branch (main, dev, or whatever) of your modules as their sources in
+those records. Registry records also record a checksum (an "integrity"
+code, a sha256 hash) for each module - the tool we will use handles
+this automatically, by dereferencing the URL we give it.
+
+Now since we used branch URLs, the checksum will change whenever you
+push a commit. So your registry records will go out of sync whenever
+you push a commit to a module repo. To get around this during
+development you will instruct Bazel to disregard the source URLs listed in
+the registry and instead resolve module dependencies to the repos on
+your local disk. You also tell Bazel to use your local registry to
+resolve dependencies.
+
+With this entirely local workflow, you can make all the changes you
+want without needing to update your registry records, unless you
+change the module name or version, or its dependencies.
+
+Once your modules and local registry records are in good order -
+everything builds and the tests succedd - you will switch to a
+"prerelease" (or "beta" or whatever you want to call it). Instead of
+using the local registry and module repositories, you will use the
+`dev` branch the Github URL of the registry. To do that you will first
+update all the module records in your local repository, and push your
+commits. That sets the checksums of the source URLs. Then you update
+your local registry records, which causes those checksums to be
+recorded. Then you commit the change to the local registry to the
+`dev` branch, and push it upstream to its git repo. Finally, you
+instruct Bazel to use the `dev` branch of the github URL of your
+registry. The source URLs of the registry records will point to the
+github repositories to which you just pushed your changes, and the
+checksums will be in sync. To test this you just build your targets,
+and to resolve dependencies Bazel will consult the `dev` branch of
+your registry on Github, and fetch modules as directed from their
+Github repo URLs.
+
+At this point, any changes you make to a module will force you to
+commit your changes and push them to github, then refresh its registry
+record locally, commit the change, and then push it to Github. In that
+order, so that the registry records will have the correct checksums.
+That's why we use only local registries and repositories for initial
+development.
+
+(BTW, you will also develop your modules in dependency-order, starting
+at the leaves and working your up (down?) to the root.)
+
+Once everything builds correctly in the "prerelease" phase, you will
+prepare a release. This requires that you commit and push your final
+module changes, create a local release tarball of your module repo
+(using the `git archive` command), create a tagged release using the
+Github web UI, and upload the release tarball as an asset of the
+release. Then you will update the registry record, changing the source
+URL to the URL of the tarball you just uploaded. Since that tarball is
+fixed, its checksum will never change, so once you have updated its
+registry record you have a stable record. So you can commit the new
+registry record, again to the dev branch, and run through the tests
+again using the same method as before. Once you're satisfied that
+everything is hunky-dory, you will merge the `dev` branch of the
+registry to the main branch, push it, and voila, you have a stable
+release.
+
+
 == Private/local registry
 
 The easy way to create a private registry is to create a new github
