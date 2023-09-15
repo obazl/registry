@@ -1,9 +1,5 @@
 {
     "url": "https://github.com/obazl/opamc/releases/download/1.0.0/opamc-1.0.0.tar.gz",
-    "integrity": "sha256-nK4I5n+DaV3C6P5ZlqlWlXTa84PBlPnTG+xu1mFnf4o=",
-    "strip_prefix": "opamc-1.0.0",
-    "patch_strip": 0,
-    "patches": {
-        "module_dot_bazel.patch": "sha256-XG2xEJBmodQhCfK+JYOVqn8Gyhul2typlvhzsqsMFUg="
-    }
+    "integrity": "sha256-cyWVKnw307KdUDBK8ahhEaSJ1IOZGtG8weQ63fNrESw=",
+    "strip_prefix": "opamc-1.0.0"
 }
