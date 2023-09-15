@@ -187,7 +187,7 @@ github repo) and a local copy thereof, and you have some `--registry`
 directives and possibly some `--override_repository` or other override
 directives in some bazelrc files. Furthermore you may have multiple
 bazelrc files. So in order to test properly you need to be able to
-control all this stuff.
+control all this stuff, so that you can build and tests in a clean environment.
 
 For example, you may have:
 
@@ -221,6 +221,8 @@ You will also have:
 
 and you will have some `--repository` directives in your bazelrc files
 to enable them.
+
+(TODO: now describe the flags and options that ensure a "clean" env - `--no*_rc` etc.)
 
 For prerelease and release, unit tests should be run in a clean
 environment (`--nohome_rc` etc.), just like the builds.
