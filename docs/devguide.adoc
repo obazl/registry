@@ -9,7 +9,7 @@ link:https://github.com/bazelbuild/bazel-central-registry[Bazel
 Central Repository]. Mainly because I don't know how to use that
 stuff, but also because I wanted to understand how everything works.
 The result is a collection of Bazel modules registered in a
-(pubicly-available) link:https://github.com/obazl/registry[private
+(publicly-available) link:https://github.com/obazl/registry[private
 registry]. Preparing such modules for submission to the BCR is a
 separate issue, which I'll document if I ever get around to it.
 
