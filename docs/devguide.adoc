@@ -284,7 +284,7 @@ your registry.
 
 === files
 
-==== .bazelrc
+===== .bazelrc
 
 Contains only:
 
@@ -294,26 +294,26 @@ Contains only:
 Everything else belongs in `.config/user.bazelrc` or some other
 imported bazelrc file.
 
-==== .bazelignore
+===== .bazelignore
 
 Omit; add to `.gitignore`
 
-==== .bazelversion
+===== .bazelversion
 
 Omit; add to `.gitignore`
 
-==== .config
+===== .config
 
 The contents are gitignored, so this can be used by the developer for
 private files, such as `.bazelrc`.
 
-===== .config/.gitignore
+====== .config/.gitignore
 
 Contains only `*` with newline. Users can use `git add -f .config/foo`
 to force a file into version control.
 
 
-===== .config/user.bazelrc
+====== .config/user.bazelrc
 
 Do not put under version control. Suggested contents, in addition to
 any customization:
@@ -325,7 +325,7 @@ any customization:
 
 This is where you put the `--registry` directives mentioned above.
 
-==== .gitignore
+===== .gitignore
 
     .bazelignore            <1>
     .bazelversion           <1>
@@ -339,11 +339,11 @@ This is where you put the `--registry` directives mentioned above.
 <3> The `bzlmod_release` tool (see below) will create a tarball; ignore it
 
 
-==== //:BUILD.bazel
+===== //:BUILD.bazel
 
 Omit this file if empty.
 
-==== MODULE.bazel
+===== MODULE.bazel
 
 Double-check `compatibility_level`.
 
@@ -352,25 +352,27 @@ link:https://bazel.build/rules/lib/globals/module#module[bazel_compatibility]
 field to indicate which version of Bazel you have used for testing.
 
 IMPORTANT: Also do test for compatibility; do not assume that your
-module will build on x.0.0 just because it builds on x.3.y. (Example:
+module will build on x.0.0 just because it builds on x.y.z. (Example:
 a `cc_shared_library` with a `deps` attribute will build with Bazel
 `6.1.0` but not `6.0.0`.)
 
 Depend on the latest versions of bcr modules if you can.
 
-==== WORKSPACE.bazel
+===== WORKSPACE.bazel
 
 One comment line, #
 
-==== test/MODULE.bazel
+===== test/MODULE.bazel
 
 contains:
 bazel_dep(name = "<module>")
 local_path_override(module_name = "<module>", path = "..")
 
-=== verify build
+=== Verify build
 
-Use the bazelrc-cancelling directives (`--nohome_rc` etcl) to ensure
+(TODO: move these "clean build" instructions up into the build/test section. This part is just a checklist)
+
+Use the bazelrc-cancelling directives (`--nohome_rc` etc) to ensure
 that your build actions are not inadvertently affected by any
 `bazelrc` files (such as `$HOME/.bazelrc`).
 
@@ -408,7 +410,7 @@ modules, it might be more convenient to use something like
     bazel build --bazelrc=~/.config/bazel/prerelease ... etc. ...
 ====
 
-=== cut a release
+=== Cut a release
 
 Commit your final changes and push. Then create a release archive by
 running the following shell script:
@@ -436,8 +438,6 @@ CAUTION: Make sure the tag you create on the github UI matches the version ident
 
 After you've cut a release, run release tests as described above,
 using `--bazelrc=.bazelrc.release` containing
-
-where `.bazelrc.prerelease` contains something like
 
     common --enable_bzlmod
     common --registry=https://raw.githubusercontent.com/<UID>/registry/main/    <1>
