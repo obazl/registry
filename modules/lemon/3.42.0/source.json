@@ -1,5 +1,5 @@
 {
-    "url": "https://github.com/obazl/lemon/releases/download/1.0.0/lemon-3.42.0.tar.gz",
-    "integrity": "sha256-MjM7KcLfIcofnQdUpHC6eYlHytgsvKh2sZJd+GwuNWI=",
+    "url": "https://github.com/obazl/lemon/releases/download/3.42.0/lemon-3.42.0.tar.gz",
+    "integrity": "sha256-up6KcA87xLy901pNLLYrparQimEwge4rk1VseYYZagY=",
     "strip_prefix": "lemon-3.42.0"
 }

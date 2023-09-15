@@ -1,5 +1,9 @@
 {
     "url": "https://github.com/obazl/makeheaders/archive/refs/heads/main.zip",
-    "integrity": "sha256-xb0XMwlMq4IIGnq+DpsfZpPdcw2+jcXiRxBWoqypB/M=",
-    "strip_prefix": "makeheaders-main"
+    "integrity": "sha256-qkoRiKzf3bEnpjzkRggc4lNA3QqGBHSjIKKcWYn/v1Y=",
+    "strip_prefix": "makeheaders-main",
+    "patch_strip": 0,
+    "patches": {
+        "module_dot_bazel.patch": "sha256-CMfyqUdTOOAz+6dIQcuMosGZyb3kktke+Uw/o5mknRY="
+    }
 }
