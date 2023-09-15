@@ -1,0 +1,9 @@
+{
+    "url": "https://github.com/libs7/mustachios_s7/archive/refs/heads/main.zip",
+    "integrity": "sha256-r7PGid3ANa49G8lyI9jy5KggSYOns03gjsqErRkGFOU=",
+    "strip_prefix": "mustachios_s7-main",
+    "patch_strip": 0,
+    "patches": {
+        "module_dot_bazel.patch": "sha256-nR29f9qiERJ8ugMQOYUHYc7MPpoHUnrTsIJ2OOskTyU="
+    }
+}

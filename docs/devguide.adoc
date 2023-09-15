@@ -631,3 +631,33 @@ still in the cache that is what will be used.
 
 In sum: if you ever re-use a source url you will need to clean the
 repo cache and update the registry.
+
+`--repository_cache=<a path>`
+
+"Specifies the cache location of the downloaded values obtained during
+the fetching of external repositories. **An empty string as argument
+requests the cache to be disabled**, otherwise the default of
+'<output_user_root>/cache/repos/v1' is used." [emphasis added]
+
+See also link:https://sluongng.hashnode.dev/bazel-caching-explained-pt-3-repository-cache[Bazel Caching Explained (pt. 3): Repository Cache]
+
+=== updating a release
+
+Sometimes you may have some minor changes and you want to update the
+release tarball instead of cutting a new release. In general that's a
+bad idea, since releases are supposed to be permanent. But sometimes
+it makes sense; for example, if you push a release and then discover
+(soon) something minor, like a typo in a version or compatibility
+identifier, it probably won't hurt to update the release tarball.
+
+On the Github web ui you can edit a release. Delete the tarball and
+save, then edit again to upload the new tarball.
+
+After that you will have to update the registry record to get the new
+integrity checksum.
+
+NOTE: After updating a release tarball, we expect the local test to
+succeed, since the local repo has the checksum of the new tarball. But
+the prerelease and release tests should fail, since they uses the
+registry record from the registry on the network, which has not yet
+been updated.

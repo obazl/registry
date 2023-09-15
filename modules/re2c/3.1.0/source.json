@@ -4,7 +4,7 @@
     "strip_prefix": "re2c-3.1",
     "patches": {
         "add_build_file.patch": "sha256-bRaU8muTAAnbmaDSmNllMRNbYYLmSdph+oUIIBQ7YXA=",
-        "module_dot_bazel.patch": "sha256-s+wShS1XlKQ8bzvQB4ulySDOfJi01hr2/aPtN5ySCGo="
+        "module_dot_bazel.patch": "sha256-xwccOd4kri8m4wSe1EPjAPEgf1UbxXV0WITB7vZdXGo="
     },
     "patch_strip": 0
 }

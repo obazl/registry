@@ -5,7 +5,8 @@
         "github:libs7/mustachios_s7"
     ],
     "versions": [
-        "0.1.0"
+        "0.1.0",
+        "1.0.0"
     ],
     "yanked_versions": {}
 }

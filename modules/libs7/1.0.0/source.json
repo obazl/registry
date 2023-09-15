@@ -1,5 +1,5 @@
 {
-    "url": "https://github.com/libs7/libs7/archive/refs/heads/dev.zip",
-    "integrity": "sha256-2V/aIlLlC/CGqKr8DObkg4eX5c4wxqtk+NSW4Rbg88Q=",
-    "strip_prefix": "libs7-dev"
+    "url": "https://github.com/libs7/libs7/releases/download/1.0.0/libs7-1.0.0.tar.gz",
+    "integrity": "sha256-U7UBaquCCVdAyzMEbx9SelPoILGK2ecNfXm/EbKf+fU=",
+    "strip_prefix": "libs7-1.0.0"
 }

@@ -2,6 +2,7 @@ module(
     name = "xdgc",
     version = "1.0.0",
     compatibility_level = 1,
+    bazel_compatibility = [">=6.0.0"]
 )
 
 bazel_dep(name = "platforms",    version = "0.0.7")
