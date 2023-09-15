@@ -2,3 +2,6 @@
 OBazl bzlmod registry
 
 WARNING: Not ready for general use.
+
+
+link:docs/devguide.adoc[bzlmod development guide]
