@@ -434,6 +434,16 @@ Omit this file if empty.
 
 ===== MODULE.bazel
 
+Should look like:
+
+    module(
+        name = "xdgc",
+        version = "1.0.0",
+        compatibility_level = 1,
+        bazel_compatibility = [">=6.0.0"]
+    )
+
+
 Double-check `compatibility_level`.
 
 _Do_ use the
@@ -443,7 +453,10 @@ field to indicate which version of Bazel you have used for testing.
 IMPORTANT: Also do test for compatibility; do not assume that your
 module will build on x.0.0 just because it builds on x.y.z. (Example:
 a `cc_shared_library` with a `deps` attribute will build with Bazel
-`6.1.0` but not `6.0.0`.)
+`6.1.0` but not `6.0.0`.). Use `.bazelversion` to specify a version to
+use for builds; see
+link:https://github.com/bazelbuild/bazelisk#how-does-bazelisk-know-which-bazel-version-to-run[How
+does bazelisk know which bazel version to run] for details.
 
 Depend on the latest versions of bcr modules if you can.
 
@@ -474,7 +487,11 @@ need; for example you can define `.bazelrc.prerelease`,
 
 Example:
 
-    bazel --bazelrc=.bazelrc.prerelease --noworkspace_rc --nosystem_rc --nohome_rc build //...
+    bazel --bazelrc=.bazelrc.prerelease \
+    --noworkspace_rc \
+    --nosystem_rc \
+    --nohome_rc \
+    build --nokeep_state_after_build //...
 
 where `.bazelrc.prerelease` contains something like
 
@@ -489,6 +506,10 @@ The `no*_rc` directives will ensure that you do not inadvertently pick
 up a `--registry` or override directive that might give you a false
 positive.
 
+NOTE: The `--no*_rc` options are bazel startup options, but
+`--nokeep_state_after_build` is a build option; so the latter but not
+the former can be used in a bazelrc file.
+
 [IMPORTANT]
 ====
 Files like `.bazelrc.prerelease` can go anywhere in the
@@ -496,7 +517,7 @@ file system. If your are using one local registry to develope several
 modules, it might be more convenient to use something like
 `$HOME/.config/bazel/prerelease` and use it across projects:
 
-    bazel build --bazelrc=~/.config/bazel/prerelease ... etc. ...
+    bazel build --bazelrc=/path/to/.config/bazel/prerelease ... etc. ...
 ====
 
 === Cut a release
@@ -574,3 +595,39 @@ TODO:
 
 link:https://github.com/bazelbuild/continuous-integration/blob/master/buildkite/README.md#using-a-specific-version-of-bazel[specific bazel version]
 
+
+=== repository cache
+
+link:https://bazel.build/run/build#repository-cache[The repository cache]
+
+WARNING: if you change a remote file but do not update the local
+registry record, the new version may not be downloaded. Bazel will see
+in the repo case that it has a version of the file whose checksum
+matches what's in the registry record, so it will use that.
+
+Example: changing a release archive. Not generally a good idea but if
+you're developing privately why not? You publish a release 1.0.0 and
+then immediately realize you forgot to add `bazel_compatibility` to
+the `module` directive in `MODULE.bazel`. So you fix it and instead of
+creating 1.0.1 you delete the 1.0.0 release (including tag) from
+github and then recreate it with a new tarball. So the checksum for
+the tarball will have changed.
+
+Now you run a test build _without updating the registry record_, and
+Bazel does not download the new tarball. Why? Because it first checks
+its repo cache where it finds the old tarball (with the same name),
+whose checksum matches the registry record.
+
+So you can either delete the repo cache (location: `bazel info
+repository_cache`), or, better, you can update your registry (don't
+forget to copy the MODULE.bazel file to
+<reg>/work/<module>/MODULE.baze).
+
+Actually you should do both, because the old version will still be in
+the cache. So if you run a prerelease test before pushing your
+registry changes, it will use the dev branch of the registry repo,
+which has the checksum of the old tarball. And since that tarball is
+still in the cache that is what will be used.
+
+In sum: if you ever re-use a source url you will need to clean the
+repo cache and update the registry.
