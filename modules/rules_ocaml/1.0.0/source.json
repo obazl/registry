@@ -1,5 +1,9 @@
 {
     "url": "https://github.com/obazl/rules_ocaml/archive/refs/heads/dev.zip",
-    "integrity": "sha256-h9r9fV8YdI4/7cb1G26vuS1jWL26tBpjh8VOZkp70LQ=",
-    "strip_prefix": "rules_ocaml-dev"
+    "integrity": "sha256-UxUNHxhU/xkh/pEvltw4HIRXFXz9m3FO8sPXOQC8rEY=",
+    "strip_prefix": "rules_ocaml-dev",
+    "patch_strip": 0,
+    "patches": {
+        "module_dot_bazel.patch": "sha256-Yj7sauBMKIDyLuZ5CXCFSeMc5wXXCSx9QMw8I2MKnbo="
+    }
 }

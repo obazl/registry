@@ -1,7 +1,7 @@
 module(
-    name = "bazel_central_registry",
-    compatibility_level = 1,
+    name = "obazl_registry",
     version = "0.0.0",
+    compatibility_level = 0,
 )
 
 bazel_dep(name = "rules_python", version = "0.17.3")

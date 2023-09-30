@@ -255,9 +255,21 @@ contained in the json file you need to update it, or rerun
 * `--override_repository`
 * the override "methods" (e.g. `archive_override`, `single_version_override`, etc.)
 
-== Patching
+== Patches
 
-[TODO]
+
+For new files:
+
+    diff -Naur /dev/null file > file.patch
+
+
+or in a git repo:
+1.  in a clean branch, git add but do not commit the files
+2.  git diff --patch --staged > newfiles.patch
+
+Then when running add_module.py pass newfiles.patch when it asks for
+patch files.
+
 
 
 == Testing

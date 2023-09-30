@@ -1,6 +1,6 @@
 --- MODULE.bazel
 +++ MODULE.bazel
-@@ -1,9 +1,7 @@
+@@ -1,60 +1,37 @@
 -MIBL_VERSION = "0.1.0"
 -
  module(
@@ -12,9 +12,10 @@
  )
  
  # dev deps:
-@@ -11,50 +9,29 @@
+ # re2c, rules_foreign_cc, makeheaders
  
- bazel_dep(name = "platforms", version = "0.0.6")
+-bazel_dep(name = "platforms", version = "0.0.6")
++bazel_dep(name = "platforms", version = "0.0.7")
  bazel_dep(name = "bazel_skylib", version = "1.4.2")
 +bazel_dep(name = "cc_config",    version = "1.0.0")
  
@@ -49,7 +50,7 @@
 -bazel_dep(name = "makeheaders", version = MAKEHEADERS_VERSION)
 -bazel_dep(name = "re2c", version = RE2C_VERSION)
 -bazel_dep(name = "uthash", version = UTHASH_VERSION)
--bazel_dep(name = "liblogc",  version = LIBLOG_CC_VERSION)
+-bazel_dep(name = "liblog_cc",  version = LIBLOG_CC_VERSION)
 -bazel_dep(name = "rules_cc", version = "0.0.6")
 -bazel_dep(name = "unity",  version = UNITY_VERSION, dev_dependency = True)
 -
@@ -71,17 +72,17 @@
 +bazel_dep(name = "liblogc",  version = "1.0.0")
  
  
-+bazel_dep(name = "runfiles", version = "0.1.0")
++# bazel_dep(name = "runfiles", version = "0.1.0")
 +bazel_dep(name = "libs7", version = "1.0.0")
 +bazel_dep(name = "findlibc", version = "1.0.0")
 +
-+bazel_dep(name = "libc_s7", version = "0.1.0")
-+bazel_dep(name = "libm_s7", version = "0.1.0")
++bazel_dep(name = "libc_s7", version = "1.0.0")
++bazel_dep(name = "libm_s7", version = "1.0.0")
 +bazel_dep(name = "cwalk_s7", version = "1.2.7")
 +bazel_dep(name = "cjson_s7", version = "1.7.16")
-+bazel_dep(name = "dune_s7",  version = "0.1.0")
-+bazel_dep(name = "toml_s7",  version = "0.1.0")
-+bazel_dep(name = "mustachios_s7", version = "0.1.0")
++bazel_dep(name = "dune_s7",  version = "1.0.0")
++bazel_dep(name = "toml_s7",  version = "1.0.0")
++bazel_dep(name = "mustachios_s7", version = "1.0.0")
 +
 +bazel_dep(name = "unity",  version = "2.5.2",
 +          dev_dependency = True)

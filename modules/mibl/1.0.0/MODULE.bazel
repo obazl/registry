@@ -7,7 +7,7 @@ module(
 # dev deps:
 # re2c, rules_foreign_cc, makeheaders
 
-bazel_dep(name = "platforms", version = "0.0.6")
+bazel_dep(name = "platforms", version = "0.0.7")
 bazel_dep(name = "bazel_skylib", version = "1.4.2")
 bazel_dep(name = "cc_config",    version = "1.0.0")
 
@@ -20,17 +20,17 @@ bazel_dep(name = "inih",  version = "57.0.0")
 bazel_dep(name = "liblogc",  version = "1.0.0")
 
 
-bazel_dep(name = "runfiles", version = "0.1.0")
+# bazel_dep(name = "runfiles", version = "0.1.0")
 bazel_dep(name = "libs7", version = "1.0.0")
 bazel_dep(name = "findlibc", version = "1.0.0")
 
-bazel_dep(name = "libc_s7", version = "0.1.0")
-bazel_dep(name = "libm_s7", version = "0.1.0")
+bazel_dep(name = "libc_s7", version = "1.0.0")
+bazel_dep(name = "libm_s7", version = "1.0.0")
 bazel_dep(name = "cwalk_s7", version = "1.2.7")
 bazel_dep(name = "cjson_s7", version = "1.7.16")
-bazel_dep(name = "dune_s7",  version = "0.1.0")
-bazel_dep(name = "toml_s7",  version = "0.1.0")
-bazel_dep(name = "mustachios_s7", version = "0.1.0")
+bazel_dep(name = "dune_s7",  version = "1.0.0")
+bazel_dep(name = "toml_s7",  version = "1.0.0")
+bazel_dep(name = "mustachios_s7", version = "1.0.0")
 
 bazel_dep(name = "unity",  version = "2.5.2",
           dev_dependency = True)

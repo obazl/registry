@@ -4,6 +4,6 @@
     "strip_prefix": "mibl-dev",
     "patch_strip": 0,
     "patches": {
-        "module_dot_bazel.patch": "sha256-D7iylkohIUIXNaBIgJVhw5tFlSTPzSR1wWJ8IMOVqCc="
+        "module_dot_bazel.patch": "sha256-yTVt9jkBlbmTLSRHFx5oSctMxSzrf1fxIoqVL8fjwO0="
     }
 }

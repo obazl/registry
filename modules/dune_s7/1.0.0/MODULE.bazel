@@ -1,11 +1,16 @@
 module(
     name = "dune_s7",
     version = "1.0.0",
-    compatibility_level = 1
+    compatibility_level = 1,
+    bazel_compatibility = [">=6.1.0"]
 )
 
+# bcr:
 bazel_dep(name = "platforms",    version = "0.0.7")
 bazel_dep(name = "bazel_skylib", version = "1.4.2")
+bazel_dep(name = "rules_cc",     version = "0.0.8")
+
+# obazl:
 bazel_dep(name = "cc_config",    version = "1.0.0")
 bazel_dep(name = "liblogc",      version = "1.0.0")
 bazel_dep(name = "libs7",        version = "1.0.0")

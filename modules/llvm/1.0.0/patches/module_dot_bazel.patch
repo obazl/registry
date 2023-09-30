@@ -1,0 +1,65 @@
+--- MODULE.bazel
++++ MODULE.bazel
+@@ -0,0 +1,62 @@
++LLVM_VERSION = "15.0.0"
++
++module(
++    name = "llvm",
++    # version of this module, not llvm
++    version = "1.0.0",
++    compatibility_level = 1,
++    bazel_compatibility = [">=6.0.0"]
++)
++
++# llvm_config = use_extension(
++#     "@llvm//:EXTENSIONS.bzl",
++#     "llvm_config"
++# )
++
++#config distro v. config src build
++# llvm_config.llvm(
++#     version = LLVM_VERSION,
++#     llvm_root = "//.config/llvm:llvm_root"
++
++# )
++# use_repo(llvm_config, "llvm_config")
++# # , "llvm_toolchain")
++
++# llvm_config.c_sdk(
++#     # version = LLVM_VERSION,
++#     # llvm_root = LLVM_BUILD_DIR,
++#     targets = ["ALL"]
++# )
++# use_repo(llvm_config, "llvm_c_sdk")
++
++# llvm_config.ocaml_sdk(
++#     # version = LLVM_VERSION,
++#     # llvm_build_dir = LLVM_BUILD_DIR,
++#     targets = ["ALL"]
++# )
++# use_repo(llvm_config, "llvm_ocaml_sdk")
++
++# use_repo(llvm_sdk,
++#          "llvm_tools",
++#          "llvm_c_sdk",
++#          ocaml_llvm = "llvm_ocaml_sdk")
++
++bazel_dep(name = "platforms",    version = "0.0.7")
++bazel_dep(name = "bazel_skylib", version = "1.4.2")
++bazel_dep(name = "cc_config",    version = "1.0.0")
++
++# llvm 15:
++bazel_dep(name = "zstd", version = "1.5.2")
++# local_path_override(
++#     module_name = "zstd",
++#     path = "/Users/gar/obazl/zstd"
++# )
++
++# bazel_dep(name = "obazl",           version = "1.0.0",
++#           dev_dependency = True)
++# bazel_dep(name = "ncurses", version = "6.4")
++# # on macos, ncurses comes with the sdks,
++# # so linker knows where to search
++
++bazel_dep(name = "zlib", version = "1.3")
++

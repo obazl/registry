@@ -1,9 +1,5 @@
 {
-    "url": "https://github.com/libs7/dune_s7/archive/refs/heads/main.zip",
-    "integrity": "sha256-PQA+qEoQngsDvkTLD7Tz3meiM25/hYyQu4gx67LVqyk=",
-    "strip_prefix": "dune_s7-main",
-    "patch_strip": 0,
-    "patches": {
-        "module_dot_bazel.patch": "sha256-Fex6yu4Za2+hWtioqVjGkKr7IafWHdi0u/t4dnSQqQI="
-    }
+    "url": "https://github.com/libs7/dune_s7/releases/download/1.0.0/dune_s7-1.0.0.tar.gz",
+    "integrity": "sha256-POXstrEy/PRjRMuhbqLCqMj4rcZb0IcprvQLEe+HVDI=",
+    "strip_prefix": "dune_s7-1.0.0"
 }

@@ -71,6 +71,6 @@ py_test(
       "version_test.py",
     ],
     deps = [
-      "registry", 
+      "registry",
     ],
 )

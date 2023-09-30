@@ -9,6 +9,9 @@ bazel_dep(name = "bazel_skylib", version = "1.4.2")
 bazel_dep(name = "cc_config", version = "1.0.0")
 bazel_dep(name = "rules_ocaml", version = "1.0.0")
 
+##FIXME: testing only
+# bazel_dep(name = "ocaml", version = "0.0.0")
+
 bazel_dep(name = "opamc", version = "1.0.0")
 bazel_dep(name = "findlibc", version = "1.0.0")
 bazel_dep(name = "xdgc", version = "1.0.0")
@@ -23,9 +26,9 @@ bazel_dep(name = "re2c", version = "3.1.0")
 bazel_dep(name = "fswatch", version = "1.17.1")
 
 bazel_dep(name = "libs7", version = "1.0.0")
-bazel_dep(name = "dune_s7",  version = "0.1.0")
+bazel_dep(name = "dune_s7",  version = "1.0.0")
 
-bazel_dep(name = "runfiles", version = "0.1.0")
+# bazel_dep(name = "runfiles", version = "0.1.0")
 
 bazel_dep(name = "stardoc", version = "0.5.6")
 
