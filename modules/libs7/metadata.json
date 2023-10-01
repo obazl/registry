@@ -5,7 +5,8 @@
         "github:libs7/libs7"
     ],
     "versions": [
-        "1.0.0"
+        "1.0.0",
+        "1.0.1"
     ],
     "yanked_versions": {}
 }
