@@ -1,8 +1,8 @@
 {
-    "homepage": "https://github.com/obazl-repository/gopt",
+    "homepage": "https://github.com/obazl/gopt",
     "maintainers": [],
     "repository": [
-        "github:obazl-repository/gopt"
+        "github:obazl/gopt"
     ],
     "versions": [
         "10.0.0"
