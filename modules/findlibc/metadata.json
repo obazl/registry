@@ -5,7 +5,8 @@
         "github:obazl/findlibc"
     ],
     "versions": [
-        "1.0.0"
+        "1.0.0",
+        "1.1.0"
     ],
     "yanked_versions": {}
 }
