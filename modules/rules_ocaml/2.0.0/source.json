@@ -1,0 +1,5 @@
+{
+    "url": "https://github.com/obazl/rules_ocaml/releases/download/2.0.0/rules_ocaml-2.0.0.tar.gz",
+    "integrity": "sha256-uN1QVONxR1qQEietBVRlrRW0wltwrwpMWfvvUUS7nAU=",
+    "strip_prefix": "rules_ocaml-2.0.0"
+}
