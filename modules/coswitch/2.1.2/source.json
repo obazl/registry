@@ -1,0 +1,5 @@
+{
+    "url": "https://github.com/obazl/coswitch/releases/download/2.1.2/coswitch-2.1.2.tar.gz",
+    "integrity": "sha256-2qzdPYtYLe5X6r3Ea7orIhPJj1ZVal8cOmt2vXgZKWw=",
+    "strip_prefix": "coswitch-2.1.2"
+}
