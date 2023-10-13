@@ -1,9 +1,5 @@
 {
-    "url": "https://github.com/obazl/linenoise/archive/refs/heads/master.zip",
-    "integrity": "sha256-Y/L9Oydl0KKATQZhgvVk91S8S7Fb3A+qZj/nLuVvcZY=",
-    "strip_prefix": "linenoise-master",
-    "patch_strip": 0,
-    "patches": {
-        "module_dot_bazel.patch": "sha256-XC9FACkX429KdrqU9HS3Ust82gC7hOwRYCRgEA6ZzPI="
-    }
+    "url": "https://github.com/obazl/linenoise/releases/download/1.0.0/linenoise-1.0.0.tar.gz",
+    "integrity": "sha256-wJupsoGuCekWSeaT3wddoKiZKQWQiCSyoOLZswjLc5I=",
+    "strip_prefix": "linenoise-1.0.0"
 }
