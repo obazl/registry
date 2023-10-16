@@ -5,7 +5,8 @@
         "github:ThrowTheSwitch/Unity"
     ],
     "versions": [
-        "2.5.2"
+        "2.5.2",
+        "2.5.2.1"
     ],
     "yanked_versions": {}
 }

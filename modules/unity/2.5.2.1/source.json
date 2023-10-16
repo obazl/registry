@@ -1,0 +1,10 @@
+{
+    "url": "https://github.com/ThrowTheSwitch/Unity/archive/refs/tags/v2.5.2.tar.gz",
+    "integrity": "sha256-N4bebI84m+OJT+rk99hoCgLnDtTbzONhCcj4ZG2iZxo=",
+    "strip_prefix": "Unity-2.5.2",
+    "patches": {
+        "src_BUILD_bazel.patch": "sha256-RUtfmzukIvM/JKxh4NUbRYDE6FRZwgqze3vadNfF/qM=",
+        "module_dot_bazel.patch": "sha256-dxb0A/T/gIpm9tRSyrNXurtkvq5CeAKSkO1oULsWABw="
+    },
+    "patch_strip": 0
+}
