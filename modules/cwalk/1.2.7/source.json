@@ -3,8 +3,6 @@
     "integrity": "sha256-rkJOwwgwyXBBLjTZCS6qYTHZGvKJza0K1mp7HFjnaOc=",
     "strip_prefix": "cwalk-1.2.7",
     "patches": {
-        "BUILD_bazel.patch": "sha256-BgQLzQ0pj/HP2lxeo6Pxs2rj8ehMG3F0kot9ZqZn2L4=",
-        "BUILD_bzl.patch": "sha256-xOZyPcC9QP2CJb5gud9hbmCCHyCdgebVbdAN0Kta2fg=",
         "include_BUILD_bazel.patch": "sha256-M8TmRbUu2No5nDWEIs5xlYt+A7lHQevw8zG5RxxMy80=",
         "src_BUILD_bazel.patch": "sha256-u9u760KwqpwhiNXNkzNcCRdkIUjPkgUZaHwBZEiYZZE=",
         "module_dot_bazel.patch": "sha256-2rU5UG8GWmAq4RO+ATvpYCNaLd2WBymsYYHPtcYRzao="

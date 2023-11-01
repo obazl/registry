@@ -4,7 +4,8 @@
     "strip_prefix": "Unity-2.5.2",
     "patches": {
         "src_BUILD_bazel.patch": "sha256-1iKpvWLuJklt7g5m3GlxUhCjFVbJjaGGPx2Dosk27sc=",
-        "module_dot_bazel.patch": "sha256-dxb0A/T/gIpm9tRSyrNXurtkvq5CeAKSkO1oULsWABw="
+        "lib_BUILD_bazel.patch": "sha256-KtnLBzCY7/KPGyZ5AN2qFhblAj/Vb3XUGldxbIu2ujY=",
+        "module_dot_bazel.patch": "sha256-n58vaoVS1nCbYGRWpYmYnqMYFC8131uj6uOM6Hxq32k="
     },
     "patch_strip": 0
 }
