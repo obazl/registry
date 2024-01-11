@@ -1,0 +1,26 @@
+module(
+    name = "opamc",
+    version = "2.0.0",
+    compatibility_level = 2,
+    bazel_compatibility = [">=6.4.0"]
+)
+## bcr deps:
+bazel_dep(name = "platforms",      version = "0.0.8")
+bazel_dep(name = "bazel_skylib",   version = "1.5.0")
+
+## obazl deps:
+bazel_dep(name = "liblogc",        version = "2.0.0")
+bazel_dep(name = "makeheaders",    version = "2.0.0")
+bazel_dep(name = "obazl_tools_cc", version = "2.0.0")
+bazel_dep(name = "uthash",         version = "3.0.0")
+
+bazel_dep(name = "re2c",           version = "3.1.0")
+bazel_dep(name = "lemon",          version = "3.42.0")
+
+bazel_dep(name = "gopt",           version = "10.0.0.bzl.1",
+          dev_dependency = True)
+bazel_dep(name = "unity",          version = "2.5.2.bzl.1",
+          dev_dependency = True)
+
+
+
