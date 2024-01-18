@@ -1,0 +1,5 @@
+{
+    "url": "https://github.com/obazl/tools_ocaml/releases/download/2.0.0/tools_ocaml-2.0.0.tar.gz",
+    "integrity": "sha256-L90gB7xhnsYPOlobWEJ6pmQshNDJ4J3xiIlPf69GAI4=",
+    "strip_prefix": "tools_ocaml-2.0.0"
+}
