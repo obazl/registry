@@ -1,5 +1,5 @@
 {
     "url": "https://github.com/obazl/findlibc/releases/download/2.0.0/findlibc-2.0.0.tar.gz",
-    "integrity": "sha256-B8Hw2aRs/bGj3NDPjOUijnu5/chjfCriEio1CTnbvMc=",
+    "integrity": "sha256-oqIHMOoB/2c5X5nGlE2S57XMkjEDMMPp0l6eNDIgIJE=",
     "strip_prefix": "findlibc-2.0.0"
 }
