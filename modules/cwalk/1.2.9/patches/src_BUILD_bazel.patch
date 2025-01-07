@@ -1,0 +1,12 @@
+--- /dev/null	2025-01-01 13:37:37
++++ src/BUILD.bazel	2023-10-30 15:13:20
+@@ -0,0 +1,9 @@
++cc_library(
++    name  = "cwalk",
++    linkstatic = True,
++    srcs  = ["cwalk.c"],
++    hdrs  = ["//include:cwalk.h"],
++    deps  = ["//include:hdr"],
++    copts = ["-x", "c", "-std=c11"],
++    visibility = ["//visibility:public"]
++)

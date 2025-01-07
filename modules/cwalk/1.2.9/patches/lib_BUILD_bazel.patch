@@ -1,0 +1,8 @@
+--- /dev/null	2025-01-01 13:37:44
++++ lib/BUILD.bazel	2024-10-05 13:58:14
+@@ -0,0 +1,5 @@
++alias(
++    name = "cwalk",
++    actual = "//src:cwalk",
++    visibility = ["//visibility:public"]
++)
