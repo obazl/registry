@@ -2,12 +2,14 @@
     "homepage": "https://github.com/ThrowTheSwitch/Unity",
     "maintainers": [],
     "repository": [
-        "github:ThrowTheSwitch/Unity"
+        "github:ThrowTheSwitch/Unity",
+        "github:obazl/Unity"
     ],
     "versions": [
         "2.5.2",
         "2.5.2.1",
-        "2.5.2.bzl.1"
+        "2.5.2.bzl.1",
+        "2.6.1.bzl"
     ],
     "yanked_versions": {}
 }
