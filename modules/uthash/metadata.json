@@ -6,6 +6,7 @@
     ],
     "versions": [
         "2.3.0",
+        "2.3.0.bzl.8",
         "3.0.0"
     ],
     "yanked_versions": {}
