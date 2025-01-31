@@ -5,7 +5,8 @@
         "github:DaveGamble/cJSON"
     ],
     "versions": [
-        "1.7.16"
+        "1.7.16",
+        "1.7.18"
     ],
     "yanked_versions": {}
 }
