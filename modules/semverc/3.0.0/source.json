@@ -1,5 +1,5 @@
 {
     "url": "https://github.com/obazl/semverc/releases/download/3.0.0/semverc-3.0.0.tar.gz",
-    "integrity": "sha256-DKYLVxMVy96Cz7SHfuu5H/5oUXr1/F6KGsR/OSC53fg=",
+    "integrity": "sha256-ao90hY9n1Kl2yu1Vl07zvdfkholyf9j9uxJ8jvvuh1I=",
     "strip_prefix": "semverc-3.0.0"
 }
