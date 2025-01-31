@@ -1,0 +1,12 @@
+{
+    "url": "https://github.com/likle/cwalk/archive/refs/tags/v1.2.7.tar.gz",
+    "integrity": "sha256-rkJOwwgwyXBBLjTZCS6qYTHZGvKJza0K1mp7HFjnaOc=",
+    "strip_prefix": "cwalk-1.2.7",
+    "patches": {
+        "include_BUILD_bazel.patch": "sha256-m56MTCVsTIAbjppTtofyjdUEbECwUSyXly3wDW9yT40=",
+        "lib_BUILD_bazel.patch": "sha256-7yd2nfbW1LcsgeFvdZMQH43lApWf0VAXQp2YDQ+EZIU=",
+        "src_BUILD_bazel.patch": "sha256-/x5x2mTKZr5bGiCjuu8gx8rlMy2hfaXXYhfamcBq2CM=",
+        "module_dot_bazel.patch": "sha256-gh1I9TBPpPXtddZKaemXmC3OGUMAzRcckBJFLZaAMKQ="
+    },
+    "patch_strip": 0
+}
