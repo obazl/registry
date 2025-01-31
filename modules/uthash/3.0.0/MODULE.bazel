@@ -1,7 +1,0 @@
-module(
-    name = "uthash",
-    version = "3.0.0",  ## uthash 2.3.0
-    compatibility_level = 3,
-    bazel_compatibility = [">=6.0.0"]
-)
-
