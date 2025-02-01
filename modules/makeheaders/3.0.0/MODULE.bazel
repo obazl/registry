@@ -2,7 +2,7 @@ module(
     name                = "makeheaders",
     version             = "3.0.0",
     compatibility_level = 3,
-    bazel_compatibility = [">=8.0.0"]
+    bazel_compatibility = [">=6.3.0"]
 )
 
 ## bcr:
