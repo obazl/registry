@@ -2,7 +2,7 @@ module(
     name                = "obazl_config_cc",
     version             = "3.0.0",
     compatibility_level = 3,
-    bazel_compatibility = [">=8.0.0"]
+    bazel_compatibility = [">=7.0.0"]
 )
 
 bazel_dep(name = "platforms",    version = "0.0.11")
