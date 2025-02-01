@@ -6,6 +6,7 @@
     ],
     "versions": [
         "3.42.0",
+        "3.42.0.bzl",
         "3.42.0.bzl.8"
     ],
     "yanked_versions": {}
