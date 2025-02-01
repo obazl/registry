@@ -1,5 +1,5 @@
 {
-    "url": "https://github.com/obazl/gopt/releases/download/v10.0.0/gopt-10.0.0.tar.gz",
-    "integrity": "sha256-/9qLT0fIvv6OZ91m5w535II7eYGrxVY4KDiQK85C2As=",
+    "url": "https://github.com/obazl/gopt/releases/download/10.0.0/gopt-10.0.0.tar.gz",
+    "integrity": "sha256-mQQPhuFkUPQXQPbnrStoY4phefkfjiQsugPsfPB2ul4=",
     "strip_prefix": "gopt-10.0.0"
 }
