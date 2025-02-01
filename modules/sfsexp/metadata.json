@@ -2,10 +2,12 @@
     "homepage": "https://github.com/mjsottile/sfsexp",
     "maintainers": [],
     "repository": [
-        "github:mjsottile/sfsexp"
+        "github:mjsottile/sfsexp",
+        "github:obazl/sfsexp"
     ],
     "versions": [
-        "1.4.1"
+        "1.4.1",
+        "1.4.1.bzl"
     ],
     "yanked_versions": {}
 }
