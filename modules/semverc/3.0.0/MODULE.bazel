@@ -2,11 +2,9 @@ module(
     name = "semverc",
     version = "3.0.0",
     compatibility_level = 3,
-    bazel_compatibility = [">=8.0.0"]
+    bazel_compatibility = [">=6.3.0"]
 )
 #NB: upstream source is tagged 1.0 but the header says 0.2.0
 # so we pick our own version id.
 
-## bcr:
-bazel_dep(name = "platforms",      version = "0.0.11")
 bazel_dep(name = "rules_cc",       version = "0.0.17")
