@@ -2,7 +2,7 @@ module(
     name                = "xdgc",
     version             = "3.0.0",
     compatibility_level = 3,
-    bazel_compatibility = [">=8.0.0"]
+    bazel_compatibility = [">=7.0.0"]
 )
 
 ## bcr:
@@ -14,4 +14,4 @@ bazel_dep(name = "rules_cc",        version = "0.0.17")
 bazel_dep(name = "obazl_config_cc", version = "3.0.0")
 bazel_dep(name = "liblogc",         version = "3.0.0")
 bazel_dep(name = "makeheaders",     version = "3.0.0")
-bazel_dep(name = "uthash",          version = "2.3.0.bzl.8")
+bazel_dep(name = "uthash",          version = "2.3.0.bzl")
