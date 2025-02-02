@@ -2,7 +2,7 @@ module(
     name                = "findlibc",
     version             = "3.0.0",
     compatibility_level = 3,
-    bazel_compatibility = [">=8.0.0"]
+    bazel_compatibility = [">=7.0.0"]
 )
 
 ## bcr:
@@ -17,15 +17,15 @@ bazel_dep(name = "obazl_config_cc", version = "3.0.0")
 bazel_dep(name = "liblogc",        version = "3.0.0")
 bazel_dep(name = "makeheaders",    version = "3.0.0")
 bazel_dep(name = "semverc",        version = "3.0.0")
-bazel_dep(name = "uthash",         version = "2.3.0.bzl.8")
+bazel_dep(name = "uthash",         version = "2.3.0.bzl")
 
 ## dev deps
-bazel_dep(name = "gopt",           version = "10.0.0.bzl.8",
+bazel_dep(name = "gopt",           version = "10.0.0",
           dev_dependency = True)
 bazel_dep(name = "re2c",           version = "4.0.2.bzl",
           dev_dependency = True)
 
-bazel_dep(name = "lemon",          version = "3.42.0.bzl.8",
+bazel_dep(name = "lemon",          version = "3.42.0.bzl",
           dev_dependency = True)
-bazel_dep(name = "unity",          version = "2.6.1.bzl",
+bazel_dep(name = "unity",          version = "2.6.1.bzl.7",
           dev_dependency = True)
