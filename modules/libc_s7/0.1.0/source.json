@@ -1,9 +1,0 @@
-{
-    "url": "https://github.com/libs7/libc_s7/archive/refs/tags/0.1.0-prerelease.tar.gz",
-    "integrity": "sha256-aYo45rIX2IRXwG5z8BAnJTzQcspCjzFA9x6p8w4VE74=",
-    "strip_prefix": "libc_s7-0.1.0-prerelease",
-    "patch_strip": 0,
-    "patches": {
-        "module_dot_bazel.patch": "sha256-U8mjEl+G9QCURfYHtI4P+CqDT1qw9KwVDECVNtsZYrQ="
-    }
-}

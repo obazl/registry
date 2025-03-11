@@ -1,9 +1,0 @@
-{
-    "url": "https://github.com/libs7/s7x/archive/refs/heads/main.zip",
-    "integrity": "sha256-0gcfU+tfrUMwWebUmeEQBoGF0P7ZsvE/tYdkMqAdR8Q=",
-    "strip_prefix": "s7x-main",
-    "patch_strip": 0,
-    "patches": {
-        "module_dot_bazel.patch": "sha256-PsVri7qvlzyPWxtyGrlk2GshKWtll1i2W1N1giZ3Eh0="
-    }
-}

@@ -1,9 +1,0 @@
-{
-    "url": "https://github.com/libs7/test_s7/archive/refs/heads/main.zip",
-    "integrity": "sha256-4WOUeoNDK3QHmbwidSgVfuY5IDy5Vvx3Y3RSNhToNyY=",
-    "strip_prefix": "test_s7-main",
-    "patch_strip": 0,
-    "patches": {
-        "module_dot_bazel.patch": "sha256-8JsQRR2fBZToxBpuamEaj8T9toPWhDwN6ljPsaofLk8="
-    }
-}

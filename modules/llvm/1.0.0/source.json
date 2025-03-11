@@ -1,9 +1,0 @@
-{
-    "url": "https://github.com/obazl/llvm/archive/refs/heads/main.zip",
-    "integrity": "sha256-rrTt64d4NyX93Nsq9XJgdRrKL75xbICmU6bG173lb3o=",
-    "strip_prefix": "llvm-main",
-    "patch_strip": 0,
-    "patches": {
-        "module_dot_bazel.patch": "sha256-wKfAv9DoReLn/HmdxcjnkqC1I5jpATF/koB3P8uuAKs="
-    }
-}

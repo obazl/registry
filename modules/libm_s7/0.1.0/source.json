@@ -1,9 +1,0 @@
-{
-    "url": "https://github.com/libs7/libm_s7/archive/refs/heads/main.zip",
-    "integrity": "sha256-Xsu6xzHAeCKFegduc5VqHAIay5GI9J5VfDTZbjC1Pb4=",
-    "strip_prefix": "libm_s7-main",
-    "patch_strip": 0,
-    "patches": {
-        "module_dot_bazel.patch": "sha256-fTizVTiUMWrGgBMy09B+QBjeo9ZF4hgtsCaFkeg2BDU="
-    }
-}

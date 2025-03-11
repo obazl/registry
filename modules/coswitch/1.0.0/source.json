@@ -1,9 +1,0 @@
-{
-    "url": "https://github.com/obazl/coswitch/archive/refs/heads/main.zip",
-    "integrity": "sha256-IN2SgkSX6AuJHUrlub7avErncqpx1op9pBzCZwmuORg=",
-    "strip_prefix": "coswitch-main",
-    "patch_strip": 0,
-    "patches": {
-        "module_dot_bazel.patch": "sha256-4nthiwabdJhjJDp2WRB2GG0RBSZrh94+LUK82H7BEKI="
-    }
-}

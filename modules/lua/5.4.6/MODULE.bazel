@@ -1,6 +1,0 @@
-module(
-    name = "lua",
-    version = "5.4.6",
-    compatibility_level = 5,
-)
-bazel_dep(name = "platforms", version = "0.0.7")
