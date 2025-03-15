@@ -1,6 +1,6 @@
 {
     "type": "git_repository",
     "remote": "git@github.com:obazl/tools_opam.git",
-    "commit": "6b9425558c59c9626fe98d7839ac2da76440f401"
+    "commit": "2af3e7906c34c26a32619eb41431246ba3900d88"
 }
 
