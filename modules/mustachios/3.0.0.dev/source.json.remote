@@ -1,0 +1,6 @@
+{
+    "type": "git_repository",
+    "remote": "git@gitlab.com:obazl/mustachios.git",
+    "commit": "c82440a85079b46da9c96fa654f4bc5f1b4e1bb0"
+}
+

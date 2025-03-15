@@ -1,0 +1,5 @@
+{
+    "type": "git_repository",
+    "remote": "https://github.com/libs7/cwalk_s7.git",
+    "commit": "5be103c7f64d758e23fafdae8e49d70c0b4d2c51"
+}

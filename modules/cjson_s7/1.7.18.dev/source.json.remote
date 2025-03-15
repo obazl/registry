@@ -1,0 +1,5 @@
+{
+    "type": "git_repository",
+    "remote": "https://github.com/libs7/cjson_s7.git",
+    "commit": "f58fd4e5348651939b866e16391c04e1b2683da8"
+}

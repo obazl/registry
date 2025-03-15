@@ -1,6 +1,1 @@
-{
-    "type": "git_repository",
-    "remote": "git@github.com:obazl/rules_cppo.git",
-    "commit": "d0c19190fa7e625fad3519d6820968cf008f25d3"
-}
-
+source.json.remote
