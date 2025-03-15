@@ -1,1 +1,6 @@
-/Users/gar/obazl/templates_ocaml/MODULE.bazel
+module(
+    name                = "templates_ocaml",
+    version             = "1.0.0.dev",
+    compatibility_level = 1,
+)
+

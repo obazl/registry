@@ -1,1 +1,25 @@
-/Users/gar/libs7/utf8proc_s7/MODULE.bazel
+module(
+    name                = "utf8proc_s7",
+    version             = "2.8.0.dev",
+    compatibility_level = 2,
+    bazel_compatibility = [">=8.0.0"]
+)
+
+## bcr:
+bazel_dep(name = "platforms",      version = "0.0.11")
+bazel_dep(name = "rules_cc",       version = "0.1.1")
+
+## obazl:
+bazel_dep(name = "liblogc",        version = "3.0.0")
+bazel_dep(name = "obazl_tools_cc", version = "3.0.0.dev")
+bazel_dep(name = "libs7",          version = "3.0.0.dev")
+bazel_dep(name = "utf8proc",       version = "2.8.0.dev")
+
+## dev dependencies
+bazel_dep(name = "gopt",           version = "10.0.0",
+          dev_dependency=True)
+bazel_dep(name = "uthash",         version = "2.3.0.bzl",
+          dev_dependency=True)
+bazel_dep(name = "unity",          version = "2.6.1.bzl",
+          dev_dependency=True)
+
