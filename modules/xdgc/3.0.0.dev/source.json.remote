@@ -1,6 +1,6 @@
 {
     "type": "git_repository",
-    "remote": "git@github.com:obazl/xdgc.git",
+    "remote": "https://github.com/obazl/xdgc.git",
     "commit": "a9c9df791390acee34533c0c0b0ded45b8b7e72b"
 }
 

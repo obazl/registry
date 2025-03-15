@@ -1,6 +1,6 @@
 {
     "type": "git_repository",
-    "remote": "git@github.com:obazl/linenoise.git",
+    "remote": "https://github.com/obazl/linenoise.git",
     "commit": "b57f6231b7b6254b8902d202080284c62002cd8a"
 }
 

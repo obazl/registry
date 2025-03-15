@@ -1,6 +1,6 @@
 {
     "type": "git_repository",
-    "remote": "git@github.com:obazl/findlibc.git",
+    "remote": "https://github.com/obazl/findlibc.git",
     "commit": "4b056506266be27963c97b428dcec7917bcc7ede"
 }
 

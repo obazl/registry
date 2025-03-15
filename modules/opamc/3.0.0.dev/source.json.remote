@@ -1,6 +1,6 @@
 {
     "type": "git_repository",
-    "remote": "git@github.com:obazl/opamc.git",
+    "remote": "https://github.com/obazl/opamc.git",
     "commit": "52fe4d88908350588f9ec599e8c76624d11cc3e3"
 }
 

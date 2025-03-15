@@ -1,6 +1,6 @@
 {
     "type": "git_repository",
-    "remote": "git@github.com:obazl/tools_obazl.git",
+    "remote": "https://github.com/obazl/tools_obazl.git",
     "commit": "cb390ddac97c86903232aa2b9bece386540dde8f"
 }
 
