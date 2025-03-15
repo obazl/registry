@@ -1,5 +1,6 @@
 {
-    "type": "local_path",
-    "path": "obazl/templates_ocaml"
+    "type": "git_repository",
+    "remote": "git@github.com:obazl/templates_ocaml.git",
+    "commit": "657d6bf226dfa8cd0c122f0a41f9311e8485c6bc"
 }
 

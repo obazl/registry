@@ -1,5 +1,6 @@
 {
-    "type": "local_path",
-    "path": "obazlc/utf8proc"
+    "type": "git_repository",
+    "remote": "git@github.com:obazl/utf8proc.git",
+    "commit": "5f3631ae1c3b001c694d22c4d09db8f0fdaba10e"
 }
 

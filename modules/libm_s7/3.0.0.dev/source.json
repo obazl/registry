@@ -1,4 +1,5 @@
 {
-    "type": "local_path",
-    "path": "libs7/libm_s7"
+    "type": "git_repository",
+    "remote": "https://github.com/libs7/libs7.git",
+    "commit": "14dace66bb0dee689ec0495e4462ca9fafffecd8"
 }

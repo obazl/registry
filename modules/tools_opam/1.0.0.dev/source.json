@@ -1,7 +1,1 @@
-{
-    "type": "git_repository",
-    "remote": "git@github.com:obazl/tools_opam.git",
-    "commit": "bb43b97e95b7e02b120c43373e52e3e86d065230",
-    "verbose": true
-}
-
+/Users/gar/obazl/registry/modules/tools_opam/1.0.0.dev/source.json.remote

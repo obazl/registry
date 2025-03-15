@@ -1,4 +1,1 @@
-{
-    "mirrors": [],
-    "module_base_path": "../../"
-}
+{ "module_base_path": "../../" }

@@ -1,4 +1,5 @@
 {
-    "type": "local_path",
-    "path": "libs7/utf8proc_s7"
+    "type": "git_repository",
+    "remote": "https://github.com/libs7/utf8proc_s7.git",
+    "commit": "8ddf1e76f60299fc2455939988d5dea4fb1d5467"
 }

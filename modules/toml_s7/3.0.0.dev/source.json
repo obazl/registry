@@ -1,4 +1,5 @@
 {
-    "type": "local_path",
-    "path": "libs7/toml_s7"
+    "type": "git_repository",
+    "remote": "https://github.com/libs7/toml_s7.git",
+    "commit": "76b43b2728da475e9da1696c657e44160b431c0d"
 }
