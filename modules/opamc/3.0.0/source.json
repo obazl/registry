@@ -1,0 +1,5 @@
+{
+    "url": "https://github.com/obazl/opamc/releases/download/3.0.0/opamc-3.0.0.tar.gz",
+    "integrity": "sha256-jAVRCcQsHiY53DiYQwwhqG4o1xqK6wInJE4ZLoqJrrk=",
+    "strip_prefix": "opamc-3.0.0"
+}
