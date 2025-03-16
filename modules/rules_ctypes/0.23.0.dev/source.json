@@ -1,1 +1,6 @@
-source.json.remote
+{
+    "type": "git_repository",
+    "remote": "https://github.com/obazl/rules_ctypes.git",
+    "commit": "02f900343831e8fba613ae8521b1fcbe9de20e6e"
+}
+

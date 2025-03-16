@@ -1,1 +1,6 @@
-source.json.remote
+{
+    "type": "git_repository",
+    "remote": "https://github.com/obazl/rules_ppx.git",
+    "commit": "18810a1e2c39a6004d2c45332e8aeacb46f8e307"
+}
+

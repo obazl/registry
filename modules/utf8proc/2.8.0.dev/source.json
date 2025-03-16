@@ -1,1 +1,6 @@
-source.json.remote
+{
+    "type": "git_repository",
+    "remote": "https://github.com/obazl/utf8proc.git",
+    "commit": "5f3631ae1c3b001c694d22c4d09db8f0fdaba10e"
+}
+

@@ -1,1 +1,5 @@
-source.json.remote
+{
+    "type": "git_repository",
+    "remote": "https://github.com/libs7/dune_s7.git",
+    "commit": "3621f79634abf85c0af76b564bae5d78ed8b76ab"
+}

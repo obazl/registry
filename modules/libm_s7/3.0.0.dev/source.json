@@ -1,1 +1,5 @@
-source.json.remote
+{
+    "type": "git_repository",
+    "remote": "https://github.com/libs7/libs7.git",
+    "commit": "14dace66bb0dee689ec0495e4462ca9fafffecd8"
+}

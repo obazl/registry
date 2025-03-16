@@ -1,1 +1,6 @@
-source.json.remote
+{
+    "type": "git_repository",
+    "remote": "https://github.com/obazl/findlibc.git",
+    "commit": "3d9199d86b358737417b828e8a8c8faea703ea62"
+}
+
