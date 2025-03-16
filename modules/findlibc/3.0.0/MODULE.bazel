@@ -8,10 +8,10 @@ module(
 ## bcr:
 bazel_dep(name = "platforms",      version = "0.0.11")
 bazel_dep(name = "bazel_skylib",   version = "1.7.1")
-bazel_dep(name = "rules_cc",       version = "0.0.17")
+bazel_dep(name = "rules_cc",       version = "0.1.1")
 
 ## obazl deps:
-bazel_dep(name = "obazl_config_cc", version = "3.0.0")
+bazel_dep(name = "obazl_tools_cc",  version = "3.0.0")
 
 ## 3rd party
 bazel_dep(name = "liblogc",        version = "3.0.0")
@@ -27,5 +27,5 @@ bazel_dep(name = "re2c",           version = "4.0.2.bzl",
 
 bazel_dep(name = "lemon",          version = "3.42.0.bzl",
           dev_dependency = True)
-bazel_dep(name = "unity",          version = "2.6.1.bzl.7",
+bazel_dep(name = "unity",          version = "2.6.1.bzl",
           dev_dependency = True)
