@@ -1,0 +1,5 @@
+{
+    "url": "https://github.com/obazl/tomlc/releases/download/3.0.0/tomlc-3.0.0.tar.gz",
+    "integrity": "sha256-5tlaWixjKzMvivs1Ej3ka2anU9DJNBqaQtXjSp9c6Bg=",
+    "strip_prefix": "tomlc-3.0.0"
+}
