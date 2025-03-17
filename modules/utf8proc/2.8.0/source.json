@@ -1,5 +1,5 @@
 {
-    "url": "https://github.com/obazl/utf8proc/archive/refs/heads/master.zip",
-    "integrity": "sha256-1hcH9LDGUJM3f/MI3Z61nIh8pyi4Ryw0EOPNdAgtIEk=",
-    "strip_prefix": "utf8proc-master"
+    "url": "https://github.com/obazl/utf8proc/releases/download/2.8.0/utf8proc-2.8.0.tar.gz",
+    "integrity": "sha256-lZVFx9I8IHm0JAb3kniBok6KaCwZzpaF1nZtBJx49T8=",
+    "strip_prefix": "utf8proc-2.8.0"
 }
