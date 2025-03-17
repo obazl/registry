@@ -1,0 +1,5 @@
+{
+    "url": "https://github.com/obazl/linenoise/releases/download/2.0.0/linenoise-2.0.0.tar.gz",
+    "integrity": "sha256-LZ3865YHvwzeTCEt3i7VEQF5hvnIX1spLVBZsCcymkc=",
+    "strip_prefix": "linenoise-2.0.0"
+}
