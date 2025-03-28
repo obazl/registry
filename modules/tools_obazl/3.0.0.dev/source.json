@@ -1,5 +1,6 @@
 {
-    "type": "local_path",
-    "path": "obazl/tools_obazl"
+    "type": "git_repository",
+    "remote": "https://github.com/obazl/tools_obazl.git",
+    "commit": "704b97e83d9c2faf3d7a01c00794152f1394f96a"
 }
 
