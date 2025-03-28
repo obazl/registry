@@ -1,6 +1,6 @@
 {
     "type": "git_repository",
     "remote": "https://github.com/obazl/rules_menhir.git",
-    "commit": "856b08e9878c729e96413ea5e2880e998caf9841"
+    "commit": "68b406f1398f5e87d299192a72e722c773ee8e8f"
 }
 
