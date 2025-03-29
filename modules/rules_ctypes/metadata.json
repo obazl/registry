@@ -1,0 +1,11 @@
+{
+    "homepage": "https://github.com/obazl/rules_ctypes",
+    "maintainers": [],
+    "repository": [
+        "github:obazl/rules_ctypes"
+    ],
+    "versions": [
+        "0.23.0.beta.1"
+    ],
+    "yanked_versions": {}
+}
