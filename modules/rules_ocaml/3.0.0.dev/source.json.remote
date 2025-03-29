@@ -1,6 +1,0 @@
-{
-    "type": "git_repository",
-    "remote": "https://github.com/obazl/rules_ocaml.git",
-    "commit": "24fa272c7b59ad902c5c82e71aae397b63f05467"
-}
-
