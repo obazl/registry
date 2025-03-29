@@ -1,0 +1,11 @@
+{
+    "homepage": "https://github.com/obazl/tools_opam",
+    "maintainers": [],
+    "repository": [
+        "github:obazl/tools_opam"
+    ],
+    "versions": [
+        "1.0.0.beta.1"
+    ],
+    "yanked_versions": {}
+}
