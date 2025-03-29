@@ -1,0 +1,11 @@
+{
+    "homepage": "https://github.com/obazl/rules_cppo",
+    "maintainers": [],
+    "repository": [
+        "github:obazl/rules_cppo"
+    ],
+    "versions": [
+        "1.8.0.beta.1"
+    ],
+    "yanked_versions": {}
+}
