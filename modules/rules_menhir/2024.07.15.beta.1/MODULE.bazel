@@ -1,0 +1,23 @@
+module(
+    name                = "rules_menhir",
+    version             = "2024.07.15.beta.1",
+    compatibility_level = 2024,
+    bazel_compatibility = [">=7.0.0"]
+)
+
+## bcr:
+bazel_dep(name = "platforms",      version = "0.0.11")
+bazel_dep(name = "bazel_skylib",   version = "1.7.1")
+
+bazel_dep(name = "rules_ocaml",    version = "3.0.0.beta.1")
+bazel_dep(name = "tools_opam",     version = "1.0.0.beta.1")
+opam = use_extension("@tools_opam//extensions:opam.bzl", "opam")
+opam.deps(
+    pkgs = {
+        "menhir": "20240715",
+        "menhirLib": "20240715",
+    },
+)
+
+use_repo(opam, "opam.ocamlsdk")
+use_repo(opam, "opam.menhir", "opam.menhirLib")

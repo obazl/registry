@@ -1,0 +1,5 @@
+{
+    "url": "https://github.com/obazl/rules_menhir/releases/download/2024.07.15.beta.1/rules_menhir-2024.07.15.beta.1.tar.gz",
+    "integrity": "sha256-pp57Mp4mTB8uMPcGrMuTcC9TR+dtpKoHrEvDzszPfUI=",
+    "strip_prefix": "rules_menhir-2024.07.15.beta.1"
+}

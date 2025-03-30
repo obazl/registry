@@ -1,0 +1,11 @@
+{
+    "homepage": "https://github.com/obazl/rules_menhir",
+    "maintainers": [],
+    "repository": [
+        "github:obazl/rules_menhir"
+    ],
+    "versions": [
+        "2024.07.15.beta.1"
+    ],
+    "yanked_versions": {}
+}
