@@ -1,0 +1,11 @@
+{
+    "homepage": "https://github.com/obazl/rules_ppx",
+    "maintainers": [],
+    "repository": [
+        "github:obazl/rules_ppx"
+    ],
+    "versions": [
+        "3.0.0.beta.1"
+    ],
+    "yanked_versions": {}
+}

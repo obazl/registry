@@ -1,0 +1,5 @@
+{
+    "url": "https://github.com/obazl/rules_ppx/releases/download/3.0.0.beta.1/rules_ppx-3.0.0.beta.1.tar.gz",
+    "integrity": "sha256-inKoEhqKeNnBiJPRDoOLq2BL5bNtgfyL8yRlklq3jdw=",
+    "strip_prefix": "rules_ppx-3.0.0.beta.1"
+}
