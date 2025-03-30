@@ -1,5 +1,5 @@
 {
     "url": "https://github.com/obazl/rules_ctypes/releases/download/0.23.0.beta.1/rules_ctypes-0.23.0.beta.1.tar.gz",
-    "integrity": "sha256-KkH59BDxNMAmok7PWXeYmtjQy2Yto6iNMSyq6A5D3HY=",
+    "integrity": "sha256-NehJtBREDASKX2IMTZ0b7xeWBXMNBNYh4rofqcWG5gY=",
     "strip_prefix": "rules_ctypes-0.23.0.beta.1"
 }
