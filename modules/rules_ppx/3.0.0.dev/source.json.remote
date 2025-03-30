@@ -1,6 +1,0 @@
-{
-    "type": "git_repository",
-    "remote": "https://github.com/obazl/rules_ppx.git",
-    "commit": "c0b36b8434e357bc4bcf8921df933223441f30d8"
-}
-
