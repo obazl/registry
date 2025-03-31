@@ -1,0 +1,11 @@
+{
+    "homepage": "https://github.com/obazl/templates_ocaml",
+    "maintainers": [],
+    "repository": [
+        "github:obazl/templates_ocaml"
+    ],
+    "versions": [
+        "1.0.0.beta.1"
+    ],
+    "yanked_versions": {}
+}
